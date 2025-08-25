@@ -1,0 +1,23 @@
+services:
+    landing_page:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: landing_page
+        restart: always
+        ports:
+            - "3000:3000"
+        environment:
+            QUERIES_AUTH_TOKEN: ${QUERIES_AUTH_TOKEN}
+            SQLITE_DB_PATH: /app/db/landing_page.db
+        networks:
+            - nginx_network
+        volumes:
+            - sqlite-db:/app/db
+
+networks:
+    nginx_network:
+        external: true
+
+volumes:
+    sqlite-db:

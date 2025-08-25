@@ -1,0 +1,12 @@
+# Node.js dependencies
+node_modules/
+.next/
+out/
+dist/
+
+.env
+logs/
+.nyc_output/
+*.db
+clean/
+.DS_Store
