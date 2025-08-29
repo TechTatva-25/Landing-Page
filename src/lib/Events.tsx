@@ -8,6 +8,7 @@ import Slider from "react-slick"
 
 import { EventDetail } from "@/app/api/_utils"
 import { useInView } from "./useInView"
+import styles from "@/styles/passes.module.css"
 
 // import ButtonCustom from "./buttonCustom"
 import EventCard from "./EventCard"
@@ -65,7 +66,7 @@ const Events = (): React.JSX.Element => {
 	return (
 		<div className="px-4 py-16" id="events" ref={ref}>
 			<div className="my-8 flex items-center justify-center">
-				<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Events</span>
+				<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Events</span>
 			</div>
 
 			<div className="mx-auto mb-12 mt-2 max-w-screen-xl">

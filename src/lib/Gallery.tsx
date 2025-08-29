@@ -51,6 +51,7 @@ import image40 from "../images/gallery/40.jpg"
 import image41 from "../images/gallery/41.jpg"
 import image42 from "../images/gallery/42.jpg"
 import image43 from "../images/gallery/43.jpg"
+import styles from "@/styles/passes.module.css"
 
 const galleryImages = [
 	{ id: 1, image: image1, alt: "Gallery image 1" },
@@ -145,7 +146,7 @@ const Gallery = (): React.JSX.Element => {
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
 				<div className="my-8 flex items-center justify-center">
-					<h2 className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Gallery</h2>
+					<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Gallery</h2>
 				</div>
 
 				{/* Slider Section with Custom Navigation */}

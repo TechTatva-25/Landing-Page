@@ -11,6 +11,7 @@ import Footer from "@/lib/Footer"
 import Gallery from "@/lib/Gallery"
 import Passes from "@/lib/Passes"
 import Tshirt from "@/lib/Tshirt"
+import Resources from "@/lib/Resources"
 // import Sponsors from "@/lib/Sponsors"
 
 export default function Home(): React.JSX.Element {
@@ -31,6 +32,7 @@ export default function Home(): React.JSX.Element {
 
 				<FAQ></FAQ>
 				<ContactUs></ContactUs>
+					<Resources></Resources>
 				<Footer></Footer>
 			</div>
 		</>

@@ -2,27 +2,45 @@
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
 import { config } from "@fortawesome/fontawesome-svg-core"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import React, { useEffect } from "react"
-
-// import logo from "../images/mitlogo.png"
-// import Image from "next/image"
 
 // Prevent Font Awesome from dynamically adding its CSS
 config.autoAddCss = false
 
 const FloatingHeader = (): React.JSX.Element => {
 	const router = useRouter()
+	const pathname = usePathname()
+
+	const handleNavigation = (section: string) => {
+		if (pathname === "/") {
+			// If we're on the homepage, just scroll to the section
+			const element = document.querySelector(`#${section}`)
+			if (element) {
+				const headerHeight = 100
+				const elementPosition = element.getBoundingClientRect().top
+				const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: "smooth",
+				})
+			}
+		} else {
+			// If we're on a different page, navigate to homepage with the section hash
+			router.push(`/#${section}`)
+		}
+	}
 
 	useEffect(() => {
-		// Function to handle smooth scrolling with offset
+		// Function to handle smooth scrolling with offset for hash links
 		const handleClick = (e: MouseEvent): void => {
 			const target = e.target as HTMLAnchorElement
-			if (target.hash) {
+			if (target.hash && pathname === "/") {
 				e.preventDefault()
 				const element = document.querySelector(target.hash)
 				if (element) {
-					const headerHeight = 100 // Adjust this value based on your header height
+					const headerHeight = 100
 					const elementPosition = element.getBoundingClientRect().top
 					const offsetPosition = elementPosition + window.pageYOffset - headerHeight
 
@@ -46,7 +64,27 @@ const FloatingHeader = (): React.JSX.Element => {
 				link.removeEventListener("click", handleClick as EventListener)
 			})
 		}
-	}, [])
+	}, [pathname])
+
+	// Handle scrolling to section when coming from another page with hash
+	useEffect(() => {
+		if (pathname === "/" && window.location.hash) {
+			const hash = window.location.hash.substring(1)
+			setTimeout(() => {
+				const element = document.getElementById(hash)
+				if (element) {
+					const headerHeight = 100
+					const elementPosition = element.getBoundingClientRect().top
+					const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: "smooth",
+					})
+				}
+			}, 100) // Small delay to ensure page is loaded
+		}
+	}, [pathname])
 
 	return (
 		<div className="fixed left-1/2 z-50 mt-2 sm:mt-4 flex w-[calc(100%-1rem)] sm:w-auto -translate-x-1/2 items-center justify-center">
@@ -55,28 +93,28 @@ const FloatingHeader = (): React.JSX.Element => {
 					<li className="mx-1 sm:mx-2 lg:mx-4 my-1 sm:my-2 text-xs sm:text-sm lg:text-base flex-shrink-0">
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
-							href="#home">
+							onClick={() => handleNavigation("home")}>
 							Home
 						</a>
 					</li>
 					<li className="mx-1 sm:mx-2 lg:mx-4 my-1 sm:my-2 text-xs sm:text-sm lg:text-base flex-shrink-0">
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
-							href="#passes">
+							onClick={() => handleNavigation("passes")}>
 							Passes
 						</a>
 					</li>
 					<li className="mx-1 sm:mx-2 lg:mx-4 my-1 sm:my-2 text-xs sm:text-sm lg:text-base flex-shrink-0">
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
-							href="#events">
+							onClick={() => handleNavigation("events")}>
 							Events
 						</a>
 					</li>
 					<li className="mx-1 sm:mx-2 lg:mx-4 my-1 sm:my-2 text-xs sm:text-sm lg:text-base flex-shrink-0">
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
-							href="#gallery">
+							onClick={() => handleNavigation("gallery")}>
 							Gallery
 						</a>
 					</li>
@@ -84,7 +122,7 @@ const FloatingHeader = (): React.JSX.Element => {
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
 							onClick={() => {
-								router.push("/proshow")
+								router.push("/conclave")
 							}}>
 							Conclave
 						</a>

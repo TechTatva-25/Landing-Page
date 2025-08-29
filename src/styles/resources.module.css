@@ -1,0 +1,104 @@
+/* Royal Resources Section (revamped) */
+.resourcesSection {
+  position: relative;
+  padding: 4.5rem 1rem 5.5rem;
+  isolation: isolate;
+}
+.resourcesBackdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(212,165,55,0.22), transparent 65%),
+    radial-gradient(circle at 78% 80%, rgba(255,215,0,0.18), transparent 60%);
+  filter: blur(95px);
+  opacity: .55;
+  pointer-events: none;
+  z-index: -1;
+}
+.resourcesInner { max-width: 1220px; margin: 0 auto; position: relative; }
+
+.resourcesHeadingWrap { text-align: center; }
+.resourcesHeadingUnderline {
+  margin: 1.1rem auto 0;
+  width: clamp(160px,28%,340px);
+  height: 4px;
+  background: linear-gradient(90deg,rgba(0,0,0,0),#d4a63c,#f5e3ad,#d4a63c,rgba(0,0,0,0));
+  border-radius: 999px;
+  box-shadow: 0 0 18px -2px rgba(212,165,55,0.45), inset 0 0 4px rgba(255,255,255,0.25);
+  position: relative;
+  overflow: hidden;
+}
+.resourcesHeadingUnderline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.9) 50%,rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  animation: underlineSweep 6s linear infinite;
+  opacity: .6;
+}
+@keyframes underlineSweep { 0% { transform: translateX(-100%);} 60% { transform: translateX(100%);} 100% { transform: translateX(100%);} }
+
+.resourcesLead { margin: 1.75rem auto 0; max-width: 680px; font-family: var(--font-cormorant-garamond); font-size: 1.05rem; line-height: 1.55; color: #d3c8b4; letter-spacing: .35px; text-align: center; }
+
+.resourcesGrid { display: grid; gap: 2.1rem; margin-top: 3.4rem; }
+@media (min-width: 560px) { .resourcesGrid { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }}
+
+/* === Refined Royal Resource Card Styling (Understated) === */
+.resourceCard {
+  /* base reset retained above; override with subtler styling */
+  background: linear-gradient(155deg, rgba(12,12,12,0.92), rgba(16,16,16,0.9) 60%, rgba(32,26,14,0.78));
+  border: 1px solid rgba(212,165,55,0.22);
+  border-radius: 28px;
+  box-shadow: 0 6px 26px -10px rgba(0,0,0,0.75), 0 0 0 1px rgba(212,165,55,0.14), inset 0 0 0 1px rgba(255,255,255,0.02);
+  padding: 1.45rem 1.3rem 1.55rem;
+  transition: border-color .35s ease, box-shadow .45s ease, transform .45s ease;
+}
+.resourceCard::before { opacity: .14; }
+.resourceCard::after { display:none; }
+.resourceCard:hover { transform: translateY(-2px); border-color: rgba(212,165,55,0.38); box-shadow: 0 12px 34px -14px rgba(0,0,0,0.85), 0 0 0 1px rgba(212,165,55,0.28); }
+.resourceCard:focus-within { border-color: rgba(255,215,0,0.5); box-shadow: 0 0 0 2px rgba(255,215,0,0.25), 0 0 0 1px rgba(255,215,0,0.4); }
+
+/* Title + body typography adjustments */
+.resourceTitle { font-family: var(--font-cinzel-decorative); font-weight:500; font-size:1.02rem; letter-spacing:.4px; color:#f4ead5; }
+.resourceBody { font-family: var(--font-cormorant-garamond); font-size:.88rem; line-height:1.52; color:#d4c8b6; letter-spacing:.15px; margin-top:.6rem; }
+
+/* Minimal glass button replacing previous .resourceBtn look */
+.resourceBtn {
+  font-family: var(--font-cormorant-garamond);
+  font-weight:500;
+  font-size:.78rem;
+  letter-spacing:.35px;
+  text-transform:none;
+  width:100%;
+  padding:.6rem 1.05rem .62rem;
+  border-radius:14px;
+  border:1px solid rgba(212,165,55,0.3);
+  background: radial-gradient(circle at 30% 25%, rgba(212,165,55,0.10), rgba(212,165,55,0) 70%), linear-gradient(145deg,#141414,#1a1a1a 60%,#201b12);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  color:#eadfcf;
+  box-shadow: 0 4px 14px -8px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,165,55,0.16), inset 0 0 0 1px rgba(255,255,255,0.02);
+  transition: background .45s ease, border-color .4s ease, box-shadow .45s ease, color .4s ease, transform .45s ease;
+}
+.resourceBtn:hover { background: radial-gradient(circle at 35% 30%, rgba(255,215,0,0.14), rgba(255,215,0,0) 72%), linear-gradient(150deg,#161616,#232323 62%,#272015); border-color: rgba(212,165,55,0.48); color:#f6ebdb; box-shadow:0 10px 26px -12px rgba(0,0,0,0.8),0 0 0 1px rgba(212,165,55,0.32); }
+.resourceBtn:active { transform: translateY(0); box-shadow:0 5px 16px -10px rgba(0,0,0,0.75),0 0 0 1px rgba(212,165,55,0.32); }
+.resourceBtn:focus-visible { outline:none; box-shadow:0 0 0 2px rgba(255,215,0,0.28),0 0 0 1px rgba(255,215,0,0.45); }
+
+/* Make action area slightly separated */
+.resourceActions { margin-top:.9rem; }
+
+/* Remove heading underline & lead if previously inserted but not wanted visually (optional – leave structural classes intact) */
+/* .resourcesHeadingUnderline { display:none; } */
+/* .resourcesLead { display:none; } */
+
+@media (max-width:640px){ .resourceTitle { font-size: .98rem; } .resourceBody { font-size:.86rem; } .resourceBtn { font-size:.72rem; } }
+
+.resourcesNote { margin-top: 2.6rem; text-align: center; font-family: var(--font-cormorant-garamond); font-size: .92rem; color:#c0b39f; letter-spacing:.35px; }
+
+@media (max-width: 640px) {
+  .resourcesSection { padding: 3.6rem 1rem 4.4rem; }
+  .resourceCard { padding: 1.35rem 1.15rem 1.45rem; }
+  .resourcesGrid { gap: 1.6rem; }
+  .resourceBtn { font-size: .65rem; }
+}

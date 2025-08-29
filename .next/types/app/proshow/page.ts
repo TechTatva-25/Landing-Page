@@ -1,4 +1,4 @@
-// File: /Users/shubhampanda/Desktop/newmhash/Landing-Page/src/app/proshow/page.tsx
+// File: C:\tt landing page\src\app\proshow\page.tsx
 import * as entry from '../../../../src/app/proshow/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

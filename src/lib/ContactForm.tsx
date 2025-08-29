@@ -3,6 +3,8 @@ import React, { useState } from "react"
 
 import ContactDetails2 from "./ContactFormCards"
 import { useInView } from "./useInView"
+import styles from "@/styles/passes.module.css"
+import contactStyles from "@/styles/contact.module.css"
 
 const ContactUs = (): JSX.Element => {
 	const [formData, setFormData] = useState({
@@ -46,99 +48,64 @@ const ContactUs = (): JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<section className="container mb-16 py-16" id="contact" ref={ref}>
-			<div className="px-0 sm:px-8">
-				<div className="mb-8 flex items-center justify-center">
-					<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Contact Us</span>
-				</div>
-				<div className="flex flex-col items-center">
-					<div className="flex max-w-4xl flex-col items-center justify-center gap-16 md:items-start md:gap-8">
-						<div className="w-full md:px-8">
+			<section id="contact" ref={ref} className={contactStyles.contactSection}>
+				<div className={contactStyles.contactShell}>
+					<div className={contactStyles.contactBackdrop}></div>
+					<div className="mb-12 flex justify-center">
+						<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Contact Us</span>
+					</div>
+					<div className={contactStyles.formAndInfoWrapper}>
+						{/* Form Panel */}
+						<div className={`${contactStyles.royalPanel} ${'fadeInUp'}`}>
 							{!submitted && (
-															<p className="body-font mb-6 text-center text-gray-700 sm:text-xl">
-								Have questions about TechTatva 25? Need technical support or event details?
-								<span className="inline sm:hidden"> </span>
-								<br className="hidden sm:block" />
-								We're here to help.
-							</p>
+								<p className={contactStyles.contactIntro}>
+									Have questions about TechTatva 25? Need technical support or event details? We are here to help.
+								</p>
 							)}
 							{submitted && (
-								<div className="mb-4 space-y-5">
-									<p className="text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-										{submitted}
-									</p>
+								<div className="text-center">
+									<p className="heading-font text-sm tracking-wide text-amber-200/80">{submitted}</p>
 								</div>
 							)}
 							{!submitted && (
 								<form
-									onSubmit={(e) => {
-										void handleSubmit(e)
-									}}
-									className="elegant-contact-form mt-8 space-y-6 md:mt-0">
-									<div>
-										<label
-											htmlFor="name"
-											className="text-royal-gold heading-font mb-2 block font-medium">
-											Name
-										</label>
-										<input
-											type="text"
-											id="name"
-											name="name"
-											className="royal-input"
-											placeholder="Enter your full name"
-											value={formData.name}
-											onChange={handleChange}
-											required
-										/>
+									onSubmit={(e) => { void handleSubmit(e) }}
+									className={contactStyles.formFields}>
+									<div className="fieldGroup">
+										<label htmlFor="name">Name</label>
+										<input id="name" name="name" type="text" className={contactStyles.inputBase} placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
 									</div>
-									<div>
-										<label
-											htmlFor="email"
-											className="text-royal-gold heading-font mb-2 block font-medium">
-											Email
-										</label>
-										<input
-											type="email"
-											id="email"
-											name="email"
-											className="royal-input"
-											placeholder="Enter your email address"
-											value={formData.email}
-											onChange={handleChange}
-											required
-										/>
+									<div className="fieldGroup">
+										<label htmlFor="email">Email</label>
+										<input id="email" name="email" type="email" className={contactStyles.inputBase} placeholder="Enter your email address" value={formData.email} onChange={handleChange} required />
 									</div>
-									<div>
-										<label
-											htmlFor="query"
-											className="text-royal-gold heading-font mb-2 block font-medium">
-											Message
-										</label>
-										<textarea
-											id="query"
-											name="query"
-											rows={6}
-											className="royal-input"
-											placeholder="Tell us about your query or feedback regarding TechTatva 25"
-											value={formData.query}
-											onChange={handleChange}
-										/>
+									<div className="fieldGroup">
+										<label htmlFor="query">Message</label>
+										<textarea id="query" name="query" className={contactStyles.inputBase} placeholder="Tell us your query or feedback" value={formData.query} onChange={handleChange} rows={6} />
 									</div>
-									<div className="flex w-full justify-center">
-										<button type="submit" className="glassmorphic-button royal-contact-submit">
-											<span className="heading-font">Send Message</span>
+									<div className={contactStyles.submitRow}>
+										<button type="submit" className={contactStyles.royalContactBtn}>
+											<span>Send Message</span>
 										</button>
 									</div>
 								</form>
 							)}
 						</div>
-						<ContactDetails2></ContactDetails2>
+							{/* New centered Key Contacts heading outside the info card */}
+							<div className="flex justify-center -mt-4">
+								<span className={`${styles.passesHeading} heading-font text-3xl sm:text-4xl ${isInView ? 'in-view' : ''}`}>Key Contacts</span>
+							</div>
+						{/* Info Panel */}
+						<div className={`${contactStyles.infoPanel} fadeInUp`}>
+							<div className={contactStyles.infoCard}>
+								{/* Removed internal h3; heading now outside */}
+								<ContactDetails2 />
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-	)
+			</section>
+		)
 }
 
 export default ContactUs

@@ -4,6 +4,7 @@ import combo2 from "@/images/Combo1.jpg"
 import combo1 from "@/images/Combo2.jpg"
 import PassCard from "@/lib/PassCard"
 import { useInView } from "./useInView"
+import styles from "@/styles/passes.module.css"
 
 const Combos = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
@@ -11,7 +12,7 @@ const Combos = (): React.JSX.Element => {
 	return (
 		<div className="px-4 py-16" id="combos" ref={ref}>
 			<div className="mb-8 flex items-center justify-center">
-				<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Combo Deals</span>
+				<span className={`${styles.passesHeading} heading-font ${isInView ? "in-view" : ""}`}>Combo Deals</span>
 			</div>
 			<div className="mx-auto mt-8 flex max-w-screen-xl items-center justify-center">
 				<div className="flex flex-wrap justify-center gap-6">

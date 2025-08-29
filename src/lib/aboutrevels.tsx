@@ -9,9 +9,11 @@ import { useInView } from "./useInView"
 
 import techtatva from "../../public/images_tt/Untitled design (1).png"
 
+import styles from "@/styles/passes.module.css"
+
 const About: React.FC = (): JSX.Element => {
 	const { ref, isInView } = useInView()
-	
+
 	// Animation variants
 	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
@@ -60,11 +62,6 @@ const About: React.FC = (): JSX.Element => {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.3 }}>
-					<motion.div className="my-12 flex items-center justify-center" variants={itemVariants}>
-						<h2 className={`royal-gradient-heading heading-font text-5xl font-bold tracking-wide ${isInView ? 'in-view' : ''}`}>
-							About TechTatva 25
-						</h2>
-					</motion.div>
 
 					<div className="grid items-center gap-12 lg:grid-cols-2">
 						<motion.div className="relative mx-auto h-64 w-96 sm:h-80 sm:w-[600px]" variants={logoVariants}>
@@ -78,6 +75,12 @@ const About: React.FC = (): JSX.Element => {
 						</motion.div>
 
 						<motion.div className="space-y-6" variants={itemVariants}>
+							<motion.div className="mb-8" variants={itemVariants}>
+								<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>
+									TechTatva 25
+								</h2>
+							</motion.div>
+
 							<div className="space-y-6">
 								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
 									TechTatva is the annual technical festival of Manipal Institute of Technology,
@@ -107,7 +110,7 @@ const About: React.FC = (): JSX.Element => {
 					viewport={{ once: true, amount: 0.3 }}>
 					<div className="grid items-center gap-12 lg:grid-cols-2">
 						<motion.div className="mx-4 space-y-6" variants={itemVariants}>
-							<h2 className={`royal-gradient-heading heading-font text-4xl font-bold ${isInView ? 'in-view' : ''}`}>
+							<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>
 								Our Legacy
 							</h2>
 

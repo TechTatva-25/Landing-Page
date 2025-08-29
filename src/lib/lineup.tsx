@@ -1,15 +1,18 @@
 "use client"
 
-import { Home } from "lucide-react"
-import Image, { type StaticImageData } from "next/image"
-import { useRouter } from "next/navigation"
-import { type FC } from "react"
 import { motion } from "framer-motion"
+import Image, { type StaticImageData } from "next/image"
+import { type FC } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import footerStyles from "@/styles/footer.module.css"
+import styles from "@/styles/passes.module.css"
+
+import FloatingHeader from "./FloatingHeader"
 import { useInView } from "./useInView"
 
+// Removed background image import
 import igIcon from "../images/insta.png"
 import dhvani from "../images/lineup/dhvani.jpg"
 import gurleen from "../images/lineup/gurleen.jpg"
@@ -25,7 +28,6 @@ interface ArtistCard {
 }
 
 const LineUp: FC = () => {
-	const router = useRouter()
 	const { ref, isInView } = useInView()
 
 	const containerVariants = {
@@ -82,153 +84,132 @@ const LineUp: FC = () => {
 	]
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-[#E8E6D8] via-[#D8D4C8] to-[#C8C4B8] py-16" ref={ref}>
-			{/* Hero Section */}
-			<div className="relative mb-16 overflow-hidden">
-				{/* Content */}
-				<div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
-					<motion.div
-						initial={{ opacity: 0, y: -30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-						className="mb-8"
-					>
-						<h1 className={`royal-gradient-heading heading-font mb-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide ${isInView ? 'in-view' : ''}`}>
-							Conclave
-						</h1>
-						<p className="body-font mx-auto max-w-3xl text-lg sm:text-xl leading-relaxed text-gray-700">
-							Experience the grandest celebration of music and entertainment at TechTatva 25. 
-							Witness extraordinary performances from India's most talented artists in an 
-							atmosphere of pure magic and wonder.
-						</p>
-					</motion.div>
-				</div>
-			</div>
+		<div className="relative min-h-screen w-full" ref={ref}>
+			<div className="relative z-10">
+				<FloatingHeader />
 
-			{/* Artists Grid */}
-			<motion.div
-				variants={containerVariants}
-				initial="hidden"
-				animate="visible"
-				transition={{
-					duration: 0.6,
-					ease: [0.25, 0.46, 0.45, 0.94],
-				}}
-				className="mx-auto max-w-7xl px-4"
-			>
-				<div className="mb-12 text-center">
-					<motion.h2
-						variants={itemVariants}
-						initial="hidden"
-						animate="visible"
-						transition={{
-							duration: 0.6,
-							ease: [0.25, 0.46, 0.45, 0.94],
-						}}
-						className={`royal-gradient-heading heading-font text-3xl sm:text-4xl font-bold ${isInView ? 'in-view' : ''}`}
-					>
-						Featured Artists
-					</motion.h2>
-					<p className="body-font mt-4 text-base sm:text-lg text-gray-600">
-						Prepare to be mesmerized by these incredible talents
-					</p>
-				</div>
+				{/* Hero Section */}
+				<div className="relative pt-20 pb-16 overflow-hidden">
+					{/* Elegant background pattern */}
+					<div className="absolute inset-0 opacity-5">
+						<div className="absolute inset-0 bg-gradient-to-br from-transparent via-yellow-500/10 to-transparent"></div>
+					</div>
 
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{cards.map((card) => (
+					{/* Content */}
+					<div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
 						<motion.div
-							key={card.id}
+							initial={{ opacity: 0, y: -30 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+							className="mb-8"
+						>
+							<h1 className={`${styles.passesHeading} heading-font mb-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide ${isInView ? 'in-view' : ''}`}>
+								Conclave
+							</h1>
+							<p className="body-font mx-auto max-w-3xl text-lg sm:text-xl leading-relaxed text-black">
+								Experience the grandest celebration of music and entertainment at TechTatva 25.
+								Witness extraordinary performances from India's most talented artists in an
+								atmosphere of pure magic and wonder.
+							</p>
+						</motion.div>
+					</div>
+				</div>
+
+				{/* Artists Grid */}
+				<motion.div
+					variants={containerVariants}
+					initial="hidden"
+					animate="visible"
+					transition={{
+						duration: 0.6,
+						ease: [0.25, 0.46, 0.45, 0.94],
+					}}
+					className="mx-auto max-w-7xl px-4"
+				>
+					<div className="mb-12 text-center">
+						<motion.h2
 							variants={itemVariants}
 							initial="hidden"
 							animate="visible"
-							whileHover={{ y: -8, scale: 1.02 }}
-							transition={{ 
+							transition={{
 								duration: 0.6,
-								ease: [0.25, 0.46, 0.45, 0.94]
+								ease: [0.25, 0.46, 0.45, 0.94],
 							}}
+							className={`${styles.passesHeading} heading-font text-3xl sm:text-4xl font-bold ${isInView ? 'in-view' : ''}`}
 						>
-							<Card className="gothic-artist-card group overflow-hidden">
-								<CardHeader className="pb-4">
-									<CardTitle className="heading-font text-xl sm:text-2xl font-bold text-gray-800">
-										{card.title}
-									</CardTitle>
-								</CardHeader>
+							Featured Artists
+						</motion.h2>
+						<p className="body-font mt-4 text-base sm:text-lg text-black">
+							Prepare to be mesmerized by these incredible talents
+						</p>
+					</div>
 
-								<CardContent className="pb-4">
-									<div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg">
-										<Image
-											src={card.path}
-											alt={`${card.title} - Artist`}
-											fill
-											sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-											className="object-cover transition-transform duration-500 group-hover:scale-110"
-											priority={card.id <= 2}
-										/>
-										{/* Golden overlay on hover */}
-										<div className="absolute inset-0 bg-gradient-to-t from-royal-gold/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-									</div>
-								</CardContent>
+					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
+						{cards.map((card, index) => (
+							<motion.div
+								key={card.id}
+								variants={itemVariants}
+								initial="hidden"
+								animate="visible"
+								whileHover={{ y: -8, scale: 1.02 }}
+								transition={{
+									duration: 0.6,
+									delay: index * 0.1,
+									ease: [0.25, 0.46, 0.45, 0.94]
+								}}
+							>
+								<Card className={`${styles.royalPassCard} group overflow-hidden border-none`}>
+									<CardHeader className="pb-4">
+										<CardTitle className={`heading-font text-xl sm:text-2xl font-bold ${styles.passesCardTitle}`}>
+											{card.title}
+										</CardTitle>
+									</CardHeader>
 
-								<CardFooter className="pt-0">
-									<a
-										href={card.InstagramLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="w-full"
-										aria-label={`Visit ${card.title}'s Instagram profile`}
-									>
-										<Button className="gothic-instagram-button w-full text-sm sm:text-base">
+									<CardContent className="pb-4">
+										<div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg">
 											<Image
-												src={igIcon}
-												alt="Instagram"
-												width={20}
-												height={20}
-												className="h-4 w-4 sm:h-5 sm:w-5"
-												aria-hidden="true"
+												src={card.path}
+												alt={`${card.title} - Artist`}
+												fill
+												sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+												className="object-cover transition-transform duration-500 group-hover:scale-110"
+												priority={card.id <= 2}
 											/>
-											<span className="ml-2">Follow on Instagram</span>
-										</Button>
-									</a>
-								</CardFooter>
-							</Card>
-						</motion.div>
-					))}
-				</div>
-			</motion.div>
+											{/* Golden overlay on hover */}
+											<div className="absolute inset-0 bg-gradient-to-t from-yellow-600/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+										</div>
+									</CardContent>
 
-			{/* Back to Home Section */}
-			<motion.div
-				initial={{ opacity: 0, y: 30 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-				className="mx-auto mt-16 max-w-7xl px-4 text-center"
-			>
-				<div className="mb-8">
-					<motion.h3
-						variants={itemVariants}
-						initial="hidden"
-						animate="visible"
-						transition={{
-							duration: 0.6,
-							ease: [0.25, 0.46, 0.45, 0.94],
-						}}
-						className={`royal-gradient-heading heading-font text-2xl sm:text-3xl font-bold ${isInView ? 'in-view' : ''}`}
-					>
-						Ready for the Experience?
-					</motion.h3>
-					<p className="body-font mt-4 text-base sm:text-lg text-gray-600">
-						Return to explore more of TechTatva 25
-					</p>
-				</div>
+									<CardFooter className="pt-0 w-full">
+										<a
+											href={card.InstagramLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="w-full"
+											aria-label={`Visit ${card.title}'s Instagram profile`}
+										>
+											<Button className={`${footerStyles.teamButton} w-full flex items-center justify-center gap-2 !text-[0.8rem] sm:!text-sm`}>
+												<Image
+													src={igIcon}
+													alt="Instagram"
+													width={20}
+													height={20}
+													className="h-4 w-4 sm:h-5 sm:w-5"
+													aria-hidden="true"
+												/>
+												<span className="ml-2">Follow on Instagram</span>
+											</Button>
+										</a>
+									</CardFooter>
+								</Card>
+							</motion.div>
+						))}
+					</div>
+				</motion.div>
 
-				<Button
-					onClick={() => router.push("/")}
-					className="gothic-home-button group text-sm sm:text-base"
-				>
-					<Home className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110" />
-					<span>Back to Home</span>
-				</Button>
-			</motion.div>
+				{/* Enhanced spacing at bottom */}
+				<div className="h-20"></div>
+			</div>{/* end z-10 wrapper */}
 		</div>
 	)
 }

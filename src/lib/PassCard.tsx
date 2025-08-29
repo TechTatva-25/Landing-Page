@@ -1,5 +1,6 @@
 "use client"
 
+import styles from "@/styles/passes.module.css"
 import { motion } from "framer-motion"
 import Image, { StaticImageData } from "next/image"
 
@@ -18,6 +19,9 @@ const EventCard = ({
 	link = "",
 	index = 0,
 }: PassCardProps): React.JSX.Element => {
+	// Detect if this is the proshow card
+	const isProshow = passType?.toLowerCase().includes('proshow')
+
 	return (
 		<motion.div
 			initial={{
@@ -35,7 +39,7 @@ const EventCard = ({
 			}}
 			viewport={{ once: true, amount: 0.3 }}
 			whileHover={{
-				y: -8,
+				y: isProshow ? -8 : -6,
 				transition: { duration: 0.3 },
 			}}
 			onClick={() => {
@@ -43,7 +47,7 @@ const EventCard = ({
 					window.open(link)
 				}
 			}}
-			className="elegant-pass-card group cursor-pointer">
+			className={`${isProshow ? styles.proshowCard : styles.royalPassCard} group cursor-pointer`}>
 			{/* Image Section */}
 			<div className="relative h-48 overflow-hidden">
 				<Image
@@ -57,13 +61,21 @@ const EventCard = ({
 
 			{/* Content Section */}
 			<div className="p-6">
-				<h3 className="heading-font text-black mb-3 text-2xl font-normal">{passType}</h3>
+				<h3 className={`heading-font mb-3 text-2xl ${
+					isProshow ? styles.proshowCardTitle : styles.passesCardTitle
+				}`}>
+					{passType}
+				</h3>
 
-				<div className="bg-royal-gold mb-4 h-0.5 w-12"></div>
+				<div className={`${
+					isProshow ? styles.proshowCardDivider : styles.passesCardDivider
+				} mb-4`}></div>
 
-				<p className="body-font mb-4 text-sm leading-relaxed text-gray-700">{description}</p>
+				<p className={`body-font mb-4 text-sm leading-relaxed ${styles.passesCardText}`}>
+					{description}
+				</p>
 
-				<div className="text-royal-gold flex items-center text-sm font-medium transition-colors duration-300 group-hover:text-yellow-400">
+				<div className={isProshow ? styles.proshowLearnMore : styles.passesLearnMore}>
 					<span>Learn More</span>
 					<svg
 						className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
