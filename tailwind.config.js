@@ -54,6 +54,14 @@ module.exports = {
 					5: "hsl(var(--chart-5))",
 				},
 			},
+			fontFamily: {
+				'playfair': ['var(--font-playfair-display)', 'serif'],
+				'cormorant': ['var(--font-cormorant-garamond)', 'serif'],
+				'montserrat': ['var(--font-montserrat)', 'sans-serif'],
+				'inter': ['var(--font-inter)', 'sans-serif'],
+				'lora': ['var(--font-lora)', 'serif'],
+				'source-sans': ['var(--font-source-sans-3)', 'sans-serif'],
+			},
 			borderRadius: {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
