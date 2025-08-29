@@ -4,6 +4,9 @@ import { z } from "zod"
 
 import { errorResponse, QUERIES_DB_FILENAME, successResponse } from "@/app/api/_utils"
 
+// Force dynamic rendering to prevent build-time issues
+export const dynamic = "force-dynamic"
+
 interface CreateProps {
 	name: string
 	email: string

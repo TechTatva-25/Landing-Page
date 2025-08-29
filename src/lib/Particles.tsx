@@ -147,6 +147,7 @@ export default function Particles(): JSX.Element {
 
 		animate()
 
+
 		return (): void => {
 			window.removeEventListener("resize", resizeCanvas)
 			if (animationFrameRef.current) {

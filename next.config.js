@@ -10,8 +10,8 @@ const nextConfig = {
 		domains: [],
 		remotePatterns: [],
 	},
-	output: process.env.BUILD_STANDALONE ? "standalone" : undefined,
-	distDir: "dist",
+	// output: process.env.BUILD_STANDALONE ? "standalone" : undefined, // Commented out for Vercel compatibility
+	// distDir: "dist", // Commented out for Vercel compatibility
 }
 
 module.exports = nextConfig

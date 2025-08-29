@@ -2,6 +2,9 @@ import { NextResponse } from "next/server"
 
 import { RawEventDetail, successResponse } from "@/app/api/_utils"
 
+// Force dynamic rendering to prevent build-time API calls
+export const dynamic = "force-dynamic"
+
 async function fetchEvents(): Promise<RawEventDetail[]> {
 	try {
 		const url = "https://api.revelsmit.in/api/v1/events"
