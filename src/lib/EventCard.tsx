@@ -40,12 +40,12 @@ const EventCard = ({
 					{/* Date */}
 					<div className="text-left">
 						<p className="royal-gold heading-font text-xl font-semibold">MAR</p>
-						<p className="heading-font text-xl font-bold text-white">{day}</p>
+						<p className="heading-font text-xl font-bold text-black">{day}</p>
 					</div>
 
 					{/* Event Info */}
 					<div>
-						<h3 className="text-md heading-font font-bold text-white">{eventName}</h3>
+						<h3 className="text-md heading-font font-bold text-black">{eventName}</h3>
 						{/* <p className="mt-2 text-sm leading-relaxed text-gray-500">{description}</p> */}
 						<p className="royal-gold body-font mt-2 text-sm font-semibold">{clubName}</p>
 					</div>

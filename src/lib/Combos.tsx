@@ -3,14 +3,15 @@
 import combo2 from "@/images/Combo1.jpg"
 import combo1 from "@/images/Combo2.jpg"
 import PassCard from "@/lib/PassCard"
+import { useInView } from "./useInView"
 
 const Combos = (): React.JSX.Element => {
+	const { ref, isInView } = useInView()
+	
 	return (
-		<div className="bg-black px-4 py-16" id="combos">
-			<div className="mb-8 flex items-center">
-				<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white"></hr>
-				<span className="section-heading royal-gold heading-font mx-8">Combo Deals</span>
-				<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white"></hr>
+		<div className="px-4 py-16" id="combos" ref={ref}>
+			<div className="mb-8 flex items-center justify-center">
+				<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Combo Deals</span>
 			</div>
 			<div className="mx-auto mt-8 flex max-w-screen-xl items-center justify-center">
 				<div className="flex flex-wrap justify-center gap-6">

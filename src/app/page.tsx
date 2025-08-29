@@ -19,18 +19,20 @@ export default function Home(): React.JSX.Element {
 			<FloatingHeader></FloatingHeader>
 			<Background></Background>
 
-			<Passes></Passes>
-			<Combos></Combos>
-			<Events></Events>
-			<Tshirt></Tshirt>
-			<Gallery></Gallery>
-			{/* <Sponsors></Sponsors> */}
+			<div className="vignette-overlay">
+				<Passes></Passes>
+				<Combos></Combos>
+				<Events></Events>
+				<Tshirt></Tshirt>
+				<Gallery></Gallery>
+				{/* <Sponsors></Sponsors> */}
 
-			<About></About>
+				<About></About>
 
-			<FAQ></FAQ>
-			<ContactUs></ContactUs>
-			<Footer></Footer>
+				<FAQ></FAQ>
+				<ContactUs></ContactUs>
+				<Footer></Footer>
+			</div>
 		</>
 	)
 }

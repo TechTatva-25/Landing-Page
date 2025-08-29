@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
 
 import { EventDetail } from "@/app/api/_utils"
+import { useInView } from "./useInView"
 
 // import ButtonCustom from "./buttonCustom"
 import EventCard from "./EventCard"
@@ -59,12 +60,12 @@ const Events = (): React.JSX.Element => {
 		return url.replace(/[^a-zA-Z0-9-_()& ]/g, "").toLowerCase()
 	}
 
+	const { ref, isInView } = useInView()
+	
 	return (
-		<div className="bg-black px-4 py-16" id="events">
-			<div className="my-8 flex items-center">
-				<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white" />
-				<span className="section-heading royal-gold heading-font mx-8">Events</span>
-				<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white" />
+		<div className="px-4 py-16" id="events" ref={ref}>
+			<div className="my-8 flex items-center justify-center">
+				<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Events</span>
 			</div>
 
 			<div className="mx-auto mb-12 mt-2 max-w-screen-xl">

@@ -82,15 +82,12 @@ const ContactDetails2: FC = (): JSX.Element => {
 					<div key={group.id} className="premium-contact-card group">
 						{/* Royal Header */}
 						<div className="relative mb-6">
-							<div className="flex items-center">
-								<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
-								<span className="heading-font royal-gradient-heading mx-4 px-3 text-center text-xl font-normal">
+							<div className="flex items-center justify-center">
+								<span className="heading-font royal-gold text-xl font-normal">
 									{group.title}
 								</span>
-								<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
 							</div>
-							{/* Royal decorative accent */}
-							<div className="bg-royal-gold absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1 transform rounded-full opacity-60"></div>
+
 						</div>
 
 						{/* Premium Contact Items */}
@@ -99,7 +96,7 @@ const ContactDetails2: FC = (): JSX.Element => {
 								<div key={contact.id} className="premium-contact-item">
 									<div className="flex w-full items-center justify-between">
 										<div className="flex flex-col">
-											<span className="body-font text-lg font-medium text-white">
+											<span className="body-font text-lg font-medium text-black">
 												{contact.name}
 											</span>
 											<span className="text-royal-gold heading-font text-sm opacity-80">
@@ -113,13 +110,12 @@ const ContactDetails2: FC = (): JSX.Element => {
 											</div>
 											<a
 												href={`tel:${contact.phone}`}
-												className="hover:text-royal-gold mt-1 text-xs text-gray-400 transition-colors">
+												className="hover:text-royal-gold mt-1 text-xs text-gray-700 transition-colors">
 												Call now
 											</a>
 										</div>
 									</div>
-									{/* Contact item glow effect */}
-									<div className="from-royal-gold/5 to-royal-gold/5 absolute inset-0 rounded-lg bg-gradient-to-r via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
 								</div>
 							))}
 
@@ -127,7 +123,7 @@ const ContactDetails2: FC = (): JSX.Element => {
 								<div className="premium-contact-item mt-4">
 									<div className="flex w-full items-center justify-between">
 										<div className="flex flex-col">
-											<span className="body-font text-lg font-medium text-white">
+											<span className="body-font text-lg font-medium text-black">
 												General Support
 											</span>
 											<span className="text-royal-gold heading-font text-sm opacity-80">
@@ -141,7 +137,7 @@ const ContactDetails2: FC = (): JSX.Element => {
 											</div>
 											<a
 												href="mailto:info@techtatva.in"
-												className="hover:text-royal-gold mt-1 text-xs text-gray-400 transition-colors">
+												className="hover:text-royal-gold mt-1 text-xs text-gray-700 transition-colors">
 												Send email
 											</a>
 										</div>
@@ -150,8 +146,7 @@ const ContactDetails2: FC = (): JSX.Element => {
 							)}
 						</div>
 
-						{/* Royal bottom accent */}
-						<div className="via-royal-gold/30 absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent to-transparent"></div>
+
 					</div>
 				))}
 			</div>

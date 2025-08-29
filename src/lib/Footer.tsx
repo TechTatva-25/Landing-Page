@@ -50,10 +50,9 @@ const Footer: FC = (): JSX.Element => {
 	]
 
 	return (
-		<footer className="relative bg-black text-white">
+		<footer className="relative text-gray-800">
 			{/* Subtle overlay - matching hero section */}
-			<div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-			<div className="bg-gradient-radial-blur absolute inset-0" />
+			<div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
 
 			<div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
 				{/* Downloads Section */}
@@ -80,8 +79,8 @@ const Footer: FC = (): JSX.Element => {
 					{/* Address */}
 					<div className="space-y-6">
 						<h3 className="royal-gold heading-font text-xl font-bold">Address</h3>
-						<div className="body-font space-y-3 leading-relaxed text-gray-300">
-							<p className="font-semibold text-white">Manipal Institute of Technology</p>
+						<div className="body-font space-y-3 leading-relaxed text-gray-700">
+							<p className="font-semibold text-gray-800">Manipal Institute of Technology</p>
 							<p>Manipal Academy of Higher Education (MAHE)</p>
 							<p>Manipal, Karnataka 576104</p>
 						</div>
@@ -115,12 +114,7 @@ const Footer: FC = (): JSX.Element => {
 					</div>
 				</div>
 
-				{/* Copyright */}
-				<div className="border-royal-gold/20 mt-16 border-t pt-8 text-center">
-					<p className="body-font text-gray-400">
-						© 2025 TechTatva. All rights reserved. | Manipal Institute of Technology
-					</p>
-				</div>
+
 			</div>
 		</footer>
 	)

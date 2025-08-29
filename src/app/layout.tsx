@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 			<head>
 				<link rel="icon" href="/favicon.ico" sizes="any" />
 			</head>
-			<body className="bg-black">{children}</body>
+			<body>{children}</body>
 		</html>
 	)
 }

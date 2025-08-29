@@ -48,7 +48,7 @@ const CountdownTimer = (): React.JSX.Element => {
 
 	const TimeUnit = ({ value, label }: { value: number; label: string }): React.JSX.Element => (
 		<div className="mx-4 flex flex-col items-center">
-			<span className="mb-2 text-4xl font-bold text-white">{value.toString().padStart(2, "0")}</span>
+								<span className="mb-2 text-4xl font-bold text-black">{value.toString().padStart(2, "0")}</span>
 			<span className="text-sm text-gray-400">{label}</span>
 		</div>
 	)
@@ -57,7 +57,7 @@ const CountdownTimer = (): React.JSX.Element => {
 		<div className="bottom-4 left-4 rounded-lg bg-transparent p-8 text-center sm:absolute lg:-ml-4 lg:max-w-[25%] lg:justify-start">
 			{timeLeft.days || timeLeft.hours || timeLeft.minutes || timeLeft.seconds ? (
 				<>
-					<div className="mb-4 text-sm font-bold text-white">Event Starts In</div>
+					<div className="mb-4 text-sm font-bold text-black">Event Starts In</div>
 					<div className="flex justify-center">
 						{timeLeft.days && <TimeUnit value={timeLeft.days} label="Days" />}
 						<TimeUnit value={timeLeft.hours} label="Hours" />

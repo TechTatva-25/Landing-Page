@@ -8,18 +8,19 @@ import React from "react"
 
 import back from "../images/tshirts/back.png"
 import front from "../images/tshirts/front.png"
+import { useInView } from "./useInView"
 
 const Tshirt = (): React.JSX.Element => {
 	const openPage = (url: string): void => {
 		window.open(url)
 	}
 
+	const { ref, isInView } = useInView()
+	
 	return (
-		<section className="dark-bg px-4 py-16" id="tshirt">
-			<div className="my-8 flex w-full items-center">
-				<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white" />
-				<span className="section-heading royal-gold heading-font mx-8">Merchandise</span>
-				<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white" />
+		<section className="px-4 py-16" id="tshirt" ref={ref}>
+			<div className="my-8 flex w-full items-center justify-center">
+				<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Merchandise</span>
 			</div>
 
 			{/* Image Container */}

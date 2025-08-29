@@ -57,11 +57,11 @@ const EventCard = ({
 
 			{/* Content Section */}
 			<div className="p-6">
-				<h3 className="heading-font royal-gradient-heading mb-3 text-2xl font-normal">{passType}</h3>
+				<h3 className="heading-font text-black mb-3 text-2xl font-normal">{passType}</h3>
 
 				<div className="bg-royal-gold mb-4 h-0.5 w-12"></div>
 
-				<p className="body-font mb-4 text-sm leading-relaxed text-gray-300">{description}</p>
+				<p className="body-font mb-4 text-sm leading-relaxed text-gray-700">{description}</p>
 
 				<div className="text-royal-gold flex items-center text-sm font-medium transition-colors duration-300 group-hover:text-yellow-400">
 					<span>Learn More</span>

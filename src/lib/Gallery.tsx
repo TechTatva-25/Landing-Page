@@ -8,6 +8,7 @@ import React, { useRef } from "react"
 import Slider from "react-slick"
 
 import image1 from "../images/gallery/1.jpg"
+import { useInView } from "./useInView"
 import image2 from "../images/gallery/2.jpg"
 import image3 from "../images/gallery/3.jpg"
 import image4 from "../images/gallery/4.jpg"
@@ -137,14 +138,14 @@ const Gallery = (): React.JSX.Element => {
 		sliderRef.current?.slickPrev()
 	}
 
+	const { ref, isInView } = useInView()
+	
 	return (
-		<section className="bg-black px-4 py-16" id="gallery">
+		<section className="px-4 py-16" id="gallery" ref={ref}>
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
-				<div className="my-8 flex items-center">
-					<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white" />
-					<h2 className="section-heading royal-gradient-heading heading-font mx-8">Gallery</h2>
-					<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white" />
+				<div className="my-8 flex items-center justify-center">
+					<h2 className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Gallery</h2>
 				</div>
 
 				{/* Slider Section with Custom Navigation */}

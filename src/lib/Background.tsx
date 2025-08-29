@@ -69,6 +69,9 @@ const Background = (): JSX.Element => {
 				{/* Vignette Effect with Blur Fade */}
 				<div className="bg-gradient-radial-blur absolute inset-0" />
 
+				{/* Center Glow Effect */}
+				<div className="absolute inset-0 bg-gradient-radial-center-glow" />
+
 				{/* Floating Particles */}
 				<Particles />
 
@@ -185,7 +188,7 @@ const Background = (): JSX.Element => {
 								<a className="text-blue-900 underline" href="https://forms.office.com/r/iRe8kvw1mJ">
 									form
 								</a>{" "}
-								as the first step for Revels Proshow registration. Further steps will follow after
+								as the first step for Revels Conclave registration. Further steps will follow after
 								submission.
 							</p>
 

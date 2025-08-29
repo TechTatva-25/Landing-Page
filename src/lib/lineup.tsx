@@ -4,9 +4,11 @@ import { Home } from "lucide-react"
 import Image, { type StaticImageData } from "next/image"
 import { useRouter } from "next/navigation"
 import { type FC } from "react"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { useInView } from "./useInView"
 
 import igIcon from "../images/insta.png"
 import dhvani from "../images/lineup/dhvani.jpg"
@@ -24,6 +26,27 @@ interface ArtistCard {
 
 const LineUp: FC = () => {
 	const router = useRouter()
+	const { ref, isInView } = useInView()
+
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.2,
+				delayChildren: 0.1,
+			},
+		},
+	}
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 30, scale: 0.9 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+		},
+	}
 
 	const cards: ArtistCard[] = [
 		{
@@ -59,68 +82,154 @@ const LineUp: FC = () => {
 	]
 
 	return (
-		<>
-			<div className="mt-8 flex items-center">
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-				<span className="mx-8 text-3xl font-bold text-blue-900">Proshow</span>
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
+		<div className="min-h-screen bg-gradient-to-br from-[#E8E6D8] via-[#D8D4C8] to-[#C8C4B8] py-16" ref={ref}>
+			{/* Hero Section */}
+			<div className="relative mb-16 overflow-hidden">
+				{/* Content */}
+				<div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
+					<motion.div
+						initial={{ opacity: 0, y: -30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+						className="mb-8"
+					>
+						<h1 className={`royal-gradient-heading heading-font mb-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide ${isInView ? 'in-view' : ''}`}>
+							Conclave
+						</h1>
+						<p className="body-font mx-auto max-w-3xl text-lg sm:text-xl leading-relaxed text-gray-700">
+							Experience the grandest celebration of music and entertainment at TechTatva 25. 
+							Witness extraordinary performances from India's most talented artists in an 
+							atmosphere of pure magic and wonder.
+						</p>
+					</motion.div>
+				</div>
 			</div>
-			<div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2">
-				{cards.map((card) => (
-					<Card
-						key={card.id}
-						className="overflow-hidden bg-white text-blue-900 shadow-md shadow-blue-800 transition-transform duration-200">
-						<CardHeader>
-							<CardTitle className="text-xl font-bold">{card.title}</CardTitle>
-						</CardHeader>
 
-						<CardContent>
-							<div className="relative aspect-[2/3] w-full overflow-hidden rounded-md">
-								<Image
-									src={card.path}
-									alt={`${card.title} - Artist`}
-									fill
-									sizes="(max-width: 768px) 100vw, 50vw"
-									className="object-cover"
-									priority={card.id <= 2}
-								/>
-							</div>
-						</CardContent>
+			{/* Artists Grid */}
+			<motion.div
+				variants={containerVariants}
+				initial="hidden"
+				animate="visible"
+				transition={{
+					duration: 0.6,
+					ease: [0.25, 0.46, 0.45, 0.94],
+				}}
+				className="mx-auto max-w-7xl px-4"
+			>
+				<div className="mb-12 text-center">
+					<motion.h2
+						variants={itemVariants}
+						initial="hidden"
+						animate="visible"
+						transition={{
+							duration: 0.6,
+							ease: [0.25, 0.46, 0.45, 0.94],
+						}}
+						className={`royal-gradient-heading heading-font text-3xl sm:text-4xl font-bold ${isInView ? 'in-view' : ''}`}
+					>
+						Featured Artists
+					</motion.h2>
+					<p className="body-font mt-4 text-base sm:text-lg text-gray-600">
+						Prepare to be mesmerized by these incredible talents
+					</p>
+				</div>
 
-						<CardFooter>
-							<a
-								href={card.InstagramLink}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="w-full"
-								aria-label={`Visit ${card.title}'s Instagram profile`}>
-								<Button className="flex w-full items-center justify-center gap-2 bg-blue-900 text-white hover:bg-blue-800">
-									<Image
-										src={igIcon}
-										alt=""
-										width={24}
-										height={24}
-										className="h-6 w-6"
-										aria-hidden="true"
-									/>
-									<span>Instagram</span>
-								</Button>
-							</a>
-						</CardFooter>
-					</Card>
-				))}
-			</div>
-			<div className="mb-8 mt-2 flex w-full justify-center">
-				<hr className="mt-4 h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-				<button
+				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{cards.map((card) => (
+						<motion.div
+							key={card.id}
+							variants={itemVariants}
+							initial="hidden"
+							animate="visible"
+							whileHover={{ y: -8, scale: 1.02 }}
+							transition={{ 
+								duration: 0.6,
+								ease: [0.25, 0.46, 0.45, 0.94]
+							}}
+						>
+							<Card className="gothic-artist-card group overflow-hidden">
+								<CardHeader className="pb-4">
+									<CardTitle className="heading-font text-xl sm:text-2xl font-bold text-gray-800">
+										{card.title}
+									</CardTitle>
+								</CardHeader>
+
+								<CardContent className="pb-4">
+									<div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg">
+										<Image
+											src={card.path}
+											alt={`${card.title} - Artist`}
+											fill
+											sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+											className="object-cover transition-transform duration-500 group-hover:scale-110"
+											priority={card.id <= 2}
+										/>
+										{/* Golden overlay on hover */}
+										<div className="absolute inset-0 bg-gradient-to-t from-royal-gold/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+									</div>
+								</CardContent>
+
+								<CardFooter className="pt-0">
+									<a
+										href={card.InstagramLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="w-full"
+										aria-label={`Visit ${card.title}'s Instagram profile`}
+									>
+										<Button className="gothic-instagram-button w-full text-sm sm:text-base">
+											<Image
+												src={igIcon}
+												alt="Instagram"
+												width={20}
+												height={20}
+												className="h-4 w-4 sm:h-5 sm:w-5"
+												aria-hidden="true"
+											/>
+											<span className="ml-2">Follow on Instagram</span>
+										</Button>
+									</a>
+								</CardFooter>
+							</Card>
+						</motion.div>
+					))}
+				</div>
+			</motion.div>
+
+			{/* Back to Home Section */}
+			<motion.div
+				initial={{ opacity: 0, y: 30 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+				className="mx-auto mt-16 max-w-7xl px-4 text-center"
+			>
+				<div className="mb-8">
+					<motion.h3
+						variants={itemVariants}
+						initial="hidden"
+						animate="visible"
+						transition={{
+							duration: 0.6,
+							ease: [0.25, 0.46, 0.45, 0.94],
+						}}
+						className={`royal-gradient-heading heading-font text-2xl sm:text-3xl font-bold ${isInView ? 'in-view' : ''}`}
+					>
+						Ready for the Experience?
+					</motion.h3>
+					<p className="body-font mt-4 text-base sm:text-lg text-gray-600">
+						Return to explore more of TechTatva 25
+					</p>
+				</div>
+
+				<Button
 					onClick={() => router.push("/")}
-					className="mx-6 flex w-full max-w-96 items-center justify-center gap-2 rounded-lg bg-blue-900 px-4 py-2 text-white transition-colors hover:bg-blue-700">
-					<Home className="h-5 w-5" />
+					className="gothic-home-button group text-sm sm:text-base"
+				>
+					<Home className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110" />
 					<span>Back to Home</span>
-				</button>
-				<hr className="mt-4 h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
-			</div>
-		</>
+				</Button>
+			</motion.div>
+		</div>
 	)
 }
 

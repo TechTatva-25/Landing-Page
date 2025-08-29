@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/api/v1/events":{},"/api/v1/adminLogs":{},"/api/v1/query":{},"/proshow":{},"/contact":{},"/team":{},"/api/v1/raw-events":{},"/timetable":{},"/api/v1/admin":{}}}
+{"version":1,"functions":{"/api/v1/query":{},"/api/v1/adminLogs":{},"/api/v1/admin":{},"/api/v1/events":{},"/api/v1/raw-events":{},"/proshow":{},"/contact":{},"/team":{},"/timetable":{}}}

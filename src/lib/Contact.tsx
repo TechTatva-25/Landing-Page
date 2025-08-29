@@ -24,7 +24,7 @@ const ContactDetails: FC = (): JSX.Element => {
 		},
 		{
 			id: "cultural",
-			title: "Cultural and Proshow Queries",
+			title: "Cultural and Conclave Queries",
 			color: "from-green-500 to-teal-500",
 			contacts: [
 				{

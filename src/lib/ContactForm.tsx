@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 
 import ContactDetails2 from "./ContactFormCards"
+import { useInView } from "./useInView"
 
 const ContactUs = (): JSX.Element => {
 	const [formData, setFormData] = useState({
@@ -42,26 +43,24 @@ const ContactUs = (): JSX.Element => {
 			})
 	}
 
+	const { ref, isInView } = useInView()
+	
 	return (
-		<section className="container mb-16 bg-black py-16" id="contact">
+		<section className="container mb-16 py-16" id="contact" ref={ref}>
 			<div className="px-0 sm:px-8">
-				<div className="mb-8 flex sm:items-center">
-					<hr className="to-royal-gold invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-white sm:visible"></hr>
-					<span className="section-heading heading-font royal-gradient-heading mx-8 flex w-full justify-center sm:w-fit">
-						Contact Us
-					</span>
-					<hr className="from-royal-gold invisible h-[2px] flex-grow border-0 bg-gradient-to-r to-white sm:visible"></hr>
+				<div className="mb-8 flex items-center justify-center">
+					<span className={`section-heading royal-gradient-heading heading-font ${isInView ? 'in-view' : ''}`}>Contact Us</span>
 				</div>
 				<div className="flex flex-col items-center">
 					<div className="flex max-w-4xl flex-col items-center justify-center gap-16 md:items-start md:gap-8">
 						<div className="w-full md:px-8">
 							{!submitted && (
-								<p className="body-font mb-6 text-center text-gray-300 sm:text-xl">
-									Have questions about TechTatva 25? Need technical support or event details?
-									<span className="inline sm:hidden"> </span>
-									<br className="hidden sm:block" />
-									We're here to help.
-								</p>
+															<p className="body-font mb-6 text-center text-gray-700 sm:text-xl">
+								Have questions about TechTatva 25? Need technical support or event details?
+								<span className="inline sm:hidden"> </span>
+								<br className="hidden sm:block" />
+								We're here to help.
+							</p>
 							)}
 							{submitted && (
 								<div className="mb-4 space-y-5">

@@ -5,10 +5,13 @@ import Image from "next/image"
 import React from "react"
 
 import mit from "@/images/mitlogo.png"
+import { useInView } from "./useInView"
 
 import techtatva from "../../public/images_tt/Untitled design (1).png"
 
 const About: React.FC = (): JSX.Element => {
+	const { ref, isInView } = useInView()
+	
 	// Animation variants
 	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
@@ -44,10 +47,9 @@ const About: React.FC = (): JSX.Element => {
 	}
 
 	return (
-		<div className="relative overflow-hidden bg-black text-white">
+		<div className="relative overflow-hidden text-gray-800" ref={ref}>
 			{/* Royal background with subtle overlay */}
-			<div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-			<div className="bg-gradient-radial-blur absolute inset-0" />
+			<div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
 
 			<div className="relative z-10 py-20 sm:px-32">
 				{/* Hero Section */}
@@ -58,12 +60,10 @@ const About: React.FC = (): JSX.Element => {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.3 }}>
-					<motion.div className="my-12 flex items-center" variants={itemVariants}>
-						<div className="via-royal-gold/50 to-royal-gold h-[1px] flex-grow bg-gradient-to-r from-transparent" />
-						<h2 className="royal-gradient-heading heading-font mx-8 text-5xl font-bold tracking-wide">
+					<motion.div className="my-12 flex items-center justify-center" variants={itemVariants}>
+						<h2 className={`royal-gradient-heading heading-font text-5xl font-bold tracking-wide ${isInView ? 'in-view' : ''}`}>
 							About TechTatva 25
 						</h2>
-						<div className="via-royal-gold/50 to-royal-gold h-[1px] flex-grow bg-gradient-to-l from-transparent" />
 					</motion.div>
 
 					<div className="grid items-center gap-12 lg:grid-cols-2">
@@ -79,14 +79,14 @@ const About: React.FC = (): JSX.Element => {
 
 						<motion.div className="space-y-6" variants={itemVariants}>
 							<div className="space-y-6">
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-300">
+								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
 									TechTatva is the annual technical festival of Manipal Institute of Technology,
 									Manipal, celebrating innovation, creativity, and technological excellence. Conducted
 									over a period of four days, including prestigious competitions, hackathons, and
 									technical workshops, the fest is a convergence of brilliant minds and cutting-edge
 									ideas.
 								</p>
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-300">
+								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
 									From Robotics and AI to Cybersecurity, Web Development, and Machine Learning,
 									TechTatva showcases the best of technical talent. Every year, thousands of students
 									from colleges across the country, as well as international participants, come
@@ -107,16 +107,18 @@ const About: React.FC = (): JSX.Element => {
 					viewport={{ once: true, amount: 0.3 }}>
 					<div className="grid items-center gap-12 lg:grid-cols-2">
 						<motion.div className="mx-4 space-y-6" variants={itemVariants}>
-							<h2 className="royal-gradient-heading heading-font text-4xl font-bold">Our Legacy</h2>
+							<h2 className={`royal-gradient-heading heading-font text-4xl font-bold ${isInView ? 'in-view' : ''}`}>
+								Our Legacy
+							</h2>
 
 							<div className="space-y-4">
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-300">
+								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
 									TechTatva has been the cornerstone of technical innovation at Manipal Institute of
 									Technology since its inception. What started as a small gathering of tech
 									enthusiasts has evolved into one of the most prestigious technical festivals in the
 									country.
 								</p>
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-300">
+								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
 									Over the years, TechTatva has witnessed groundbreaking projects, revolutionary
 									ideas, and the birth of countless innovations that have shaped the future of
 									technology. The festival continues to inspire generations of engineers and
