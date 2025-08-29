@@ -28,7 +28,7 @@ const EventCard = ({
 					window.open(link)
 				}
 			}}
-			className="mx-4 my-4 min-h-72 max-w-xs cursor-pointer overflow-hidden rounded-3xl border-2 border-royal-gold bg-gradient-to-br from-dark-secondary-bg to-dark-bg shadow-lg transition-transform duration-300 hover:scale-105 lg:h-80 lg:w-80">
+			className="border-royal-gold from-dark-secondary-bg to-dark-bg mx-4 my-4 min-h-72 max-w-xs cursor-pointer overflow-hidden rounded-3xl border-2 bg-gradient-to-br shadow-lg transition-transform duration-300 hover:scale-105 lg:h-80 lg:w-80">
 			{/* Image Section */}
 			<div className="relative h-44">
 				<Image className="h-full w-full object-cover" src={imageUrl} width={400} height={400} alt="Event" />
@@ -39,15 +39,15 @@ const EventCard = ({
 				<div className="flex items-start space-x-4">
 					{/* Date */}
 					<div className="text-left">
-						<p className="text-xl font-semibold royal-gold heading-font">MAR</p>
-						<p className="text-xl font-bold text-white heading-font">{day}</p>
+						<p className="royal-gold heading-font text-xl font-semibold">MAR</p>
+						<p className="heading-font text-xl font-bold text-white">{day}</p>
 					</div>
 
 					{/* Event Info */}
 					<div>
-						<h3 className="text-md font-bold text-white heading-font">{eventName}</h3>
+						<h3 className="text-md heading-font font-bold text-white">{eventName}</h3>
 						{/* <p className="mt-2 text-sm leading-relaxed text-gray-500">{description}</p> */}
-						<p className="mt-2 text-sm font-semibold royal-gold body-font">{clubName}</p>
+						<p className="royal-gold body-font mt-2 text-sm font-semibold">{clubName}</p>
 					</div>
 				</div>
 			</div>

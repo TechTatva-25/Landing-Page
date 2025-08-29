@@ -14,18 +14,18 @@ const Accordion = ({
 
 	return (
 		<div className="flex justify-center">
-			<div className="mt-4 w-[75vw] rounded-lg bg-white shadow-md lg:w-[75vw]">
+			<div className="gothic-accordion mt-4 w-[75vw] lg:w-[75vw]">
 				<div
 					onClick={() => setIsOpen(!isOpen)}
-					className="flex w-full cursor-pointer items-center justify-between border-b px-4 py-2 text-xl font-semibold text-gray-700 hover:bg-gray-100">
-					<span>{title}</span>
+					className="gothic-accordion-header flex w-full cursor-pointer items-center justify-between px-4 py-3 text-xl font-semibold transition-all duration-300">
+					<span className="faq-question">{title}</span>
 					<ChevronDown
-						className={`h-5 w-5 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+						className={`h-5 w-5 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""} text-royal-gold`}
 					/>
 				</div>
-				<div className={`overflow-hidden transition-all duration-200 ${isOpen ? "max-h-96" : "max-h-0"}`}>
-					<div className="w-full p-4 text-left text-gray-600">
-						<span>{content}</span>
+				<div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96" : "max-h-0"}`}>
+					<div className="gothic-accordion-content w-full p-4 text-left">
+						<span className="faq-answer">{content}</span>
 					</div>
 				</div>
 			</div>

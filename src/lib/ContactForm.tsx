@@ -1,8 +1,6 @@
 "use client"
 import React, { useState } from "react"
 
-import { Button } from "@/components/ui/button"
-
 import ContactDetails2 from "./ContactFormCards"
 
 const ContactUs = (): JSX.Element => {
@@ -44,21 +42,21 @@ const ContactUs = (): JSX.Element => {
 			})
 	}
 
-			return (
-			<section className="container mb-16 bg-black py-16" id="contact">
-				<div className="px-0 sm:px-8">
-					<div className="mb-8 flex sm:items-center">
-						<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold sm:visible"></hr>
-											<span className="mx-8 flex w-full justify-center section-heading heading-font royal-gradient-heading sm:w-fit">
+	return (
+		<section className="container mb-16 bg-black py-16" id="contact">
+			<div className="px-0 sm:px-8">
+				<div className="mb-8 flex sm:items-center">
+					<hr className="to-royal-gold invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-white sm:visible"></hr>
+					<span className="section-heading heading-font royal-gradient-heading mx-8 flex w-full justify-center sm:w-fit">
 						Contact Us
 					</span>
-						<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white sm:visible"></hr>
-					</div>
+					<hr className="from-royal-gold invisible h-[2px] flex-grow border-0 bg-gradient-to-r to-white sm:visible"></hr>
+				</div>
 				<div className="flex flex-col items-center">
 					<div className="flex max-w-4xl flex-col items-center justify-center gap-16 md:items-start md:gap-8">
 						<div className="w-full md:px-8">
 							{!submitted && (
-								<p className="mb-6 text-center text-gray-300 body-font sm:text-xl">
+								<p className="body-font mb-6 text-center text-gray-300 sm:text-xl">
 									Have questions about TechTatva 25? Need technical support or event details?
 									<span className="inline sm:hidden"> </span>
 									<br className="hidden sm:block" />
@@ -77,11 +75,11 @@ const ContactUs = (): JSX.Element => {
 									onSubmit={(e) => {
 										void handleSubmit(e)
 									}}
-									className="mt-8 space-y-6 md:mt-0 elegant-contact-form">
+									className="elegant-contact-form mt-8 space-y-6 md:mt-0">
 									<div>
 										<label
 											htmlFor="name"
-											className="mb-2 block font-medium text-royal-gold heading-font">
+											className="text-royal-gold heading-font mb-2 block font-medium">
 											Name
 										</label>
 										<input
@@ -98,7 +96,7 @@ const ContactUs = (): JSX.Element => {
 									<div>
 										<label
 											htmlFor="email"
-											className="mb-2 block font-medium text-royal-gold heading-font">
+											className="text-royal-gold heading-font mb-2 block font-medium">
 											Email
 										</label>
 										<input
@@ -115,7 +113,7 @@ const ContactUs = (): JSX.Element => {
 									<div>
 										<label
 											htmlFor="query"
-											className="mb-2 block font-medium text-royal-gold heading-font">
+											className="text-royal-gold heading-font mb-2 block font-medium">
 											Message
 										</label>
 										<textarea
@@ -129,11 +127,9 @@ const ContactUs = (): JSX.Element => {
 										/>
 									</div>
 									<div className="flex w-full justify-center">
-																		<button
-									type="submit"
-									className="glassmorphic-button royal-contact-submit">
-									<span className="heading-font">Send Message</span>
-								</button>
+										<button type="submit" className="glassmorphic-button royal-contact-submit">
+											<span className="heading-font">Send Message</span>
+										</button>
 									</div>
 								</form>
 							)}

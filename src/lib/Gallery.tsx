@@ -3,9 +3,8 @@
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-// import ButtonCustom from "./buttonCustom";
 import Image from "next/image"
-import React from "react"
+import React, { useRef } from "react"
 import Slider from "react-slick"
 
 import image1 from "../images/gallery/1.jpg"
@@ -99,16 +98,19 @@ const galleryImages = [
 ]
 
 const Gallery = (): React.JSX.Element => {
+	const sliderRef = useRef<Slider>(null)
+
 	const settings = {
-		dots: true,
+		dots: false,
 		infinite: true,
-		speed: 500,
+		speed: 800,
 		slidesToShow: 2,
-		slidesToScroll: 2,
+		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 3000,
-		cssEase: "linear",
+		autoplaySpeed: 4000,
+		cssEase: "ease-in-out",
 		pauseOnHover: true,
+		arrows: false,
 		responsive: [
 			{
 				breakpoint: 1024,
@@ -122,47 +124,82 @@ const Gallery = (): React.JSX.Element => {
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
-					dots: false,
-					arrows: false,
 				},
 			},
 		],
 	}
 
+	const nextSlide = (): void => {
+		sliderRef.current?.slickNext()
+	}
+
+	const prevSlide = (): void => {
+		sliderRef.current?.slickPrev()
+	}
+
 	return (
-		<section className="px-4 py-16 dark-accent-bg" id="gallery">
+		<section className="bg-black px-4 py-16" id="gallery">
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
 				<div className="my-8 flex items-center">
-					<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold" />
-					<h2 className="mx-8 section-heading royal-gold heading-font">Gallery</h2>
-					<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white" />
+					<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white" />
+					<h2 className="section-heading royal-gradient-heading heading-font mx-8">Gallery</h2>
+					<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white" />
 				</div>
 
-				{/* Slider Section */}
-				<div className="mx-auto w-full max-w-6xl p-4">
-					<Slider {...settings}>
+				{/* Slider Section with Custom Navigation */}
+				<div className="relative mx-auto w-full max-w-6xl p-4">
+					{/* Custom Previous Button */}
+					<button
+						onClick={prevSlide}
+						className="border-royal-gold bg-royal-gold/20 text-royal-gold hover:bg-royal-gold absolute left-2 top-1/2 z-20 -translate-y-1/2 transform rounded-full border-2 p-3 backdrop-blur-sm transition-all duration-300 hover:text-black hover:shadow-[0_0_20px_rgba(218,165,32,0.8)] focus:outline-none"
+						aria-label="Previous image">
+						<svg
+							className="h-6 w-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+						</svg>
+					</button>
+
+					{/* Custom Next Button */}
+					<button
+						onClick={nextSlide}
+						className="border-royal-gold bg-royal-gold/20 text-royal-gold hover:bg-royal-gold absolute right-2 top-1/2 z-20 -translate-y-1/2 transform rounded-full border-2 p-3 backdrop-blur-sm transition-all duration-300 hover:text-black hover:shadow-[0_0_20px_rgba(218,165,32,0.8)] focus:outline-none"
+						aria-label="Next image">
+						<svg
+							className="h-6 w-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+						</svg>
+					</button>
+
+					<Slider ref={sliderRef} {...settings}>
 						{galleryImages.map(({ id, image, alt }) => (
 							<div key={id} className="p-2">
-								<div className="relative aspect-[4/4] w-full transform overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
-									<Image
-										src={image}
-										alt={alt}
-										fill
-										sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-										priority={id <= 4}
-										className="rounded-lg object-cover transition-opacity duration-300"
-										loading={id <= 4 ? "eager" : "lazy"}
-									/>
+								<div className="gallery-image-container group relative aspect-[4/4] w-full cursor-pointer overflow-hidden rounded-lg shadow-lg">
+									<Image src={image} alt={alt} fill className="object-cover" />
+									{/* Enhanced golden overlay with gothic effect */}
+									<div className="gallery-golden-overlay"></div>
 								</div>
 							</div>
 						))}
 					</Slider>
 				</div>
 
-				{/* <div className="flex justify-center mt-12">
-          <ButtonCustom link="/events" buttonContent="View All Events" />
-        </div> */}
+				{/* Decorative Golden Dots */}
+				<div className="mt-8 flex justify-center space-x-2">
+					{[...Array(5)].map((_, index) => (
+						<div
+							key={index}
+							className="bg-royal-gold/30 hover:bg-royal-gold h-2 w-2 rounded-full transition-all duration-300 hover:shadow-[0_0_10px_rgba(218,165,32,0.6)]"></div>
+					))}
+				</div>
 			</div>
 		</section>
 	)

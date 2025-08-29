@@ -60,11 +60,11 @@ const Events = (): React.JSX.Element => {
 	}
 
 	return (
-		<div className="px-4 py-16 dark-accent-bg" id="events">
+		<div className="bg-black px-4 py-16" id="events">
 			<div className="my-8 flex items-center">
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold" />
-				<span className="mx-8 section-heading royal-gold heading-font">Events</span>
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white" />
+				<hr className="to-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r from-white" />
+				<span className="section-heading royal-gold heading-font mx-8">Events</span>
+				<hr className="from-royal-gold h-[2px] flex-grow border-0 bg-gradient-to-r to-white" />
 			</div>
 
 			<div className="mx-auto mb-12 mt-2 max-w-screen-xl">

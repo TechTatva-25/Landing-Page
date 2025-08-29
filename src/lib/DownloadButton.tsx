@@ -21,9 +21,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ fileUrl, fileName, text
 	}
 
 	return (
-		<Button
-			onClick={handleDownload}
-			className="royal-download-button flex items-center gap-2 w-full">
+		<Button onClick={handleDownload} className="royal-download-button flex w-full items-center gap-2">
 			{text === "Download" ? <Download size={16} /> : <CalendarDays size={16} />}
 			{text ?? "Download"}
 		</Button>

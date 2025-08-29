@@ -461,7 +461,7 @@
 	border-bottom-color: rgba(218, 165, 32, 0.3);
 }
 
-/* Royal Gradient Heading */
+/* Gothic Royal Heading with Decorative Elements */
 .royal-gradient-heading {
 	color: transparent;
 	background: linear-gradient(135deg, 
@@ -475,6 +475,65 @@
 	transition: all 0.4s ease;
 	position: relative;
 	display: inline-block;
+	padding: 0 2rem;
+}
+
+/* Gothic decorative elements */
+.royal-gradient-heading::before,
+.royal-gradient-heading::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	height: 2px;
+	background: linear-gradient(90deg, 
+		transparent 0%, 
+		rgba(218, 165, 32, 0.8) 50%, 
+		transparent 100%
+	);
+	transform: translateY(-50%);
+	transition: all 0.4s ease;
+}
+
+.royal-gradient-heading::before {
+	left: -50px;
+	background: linear-gradient(90deg, 
+		transparent 0%, 
+		rgba(218, 165, 32, 0.8) 100%
+	);
+}
+
+.royal-gradient-heading::after {
+	right: -50px;
+	background: linear-gradient(90deg, 
+		rgba(218, 165, 32, 0.8) 0%, 
+		transparent 100%
+	);
+}
+
+/* Gothic ornamental flourish */
+.royal-gradient-heading::before {
+	content: '⟐';
+	background: none;
+	color: rgba(218, 165, 32, 0.6);
+	font-size: 0.8em;
+	width: auto;
+	height: auto;
+	left: -30px;
+	transform: translateY(-50%) rotate(0deg);
+	text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+}
+
+.royal-gradient-heading::after {
+	content: '⟐';
+	background: none;
+	color: rgba(218, 165, 32, 0.6);
+	font-size: 0.8em;
+	width: auto;
+	height: auto;
+	right: -30px;
+	transform: translateY(-50%) rotate(180deg);
+	text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
 }
 
 .royal-gradient-heading:hover {
@@ -491,6 +550,47 @@
 	filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.4));
 }
 
+.royal-gradient-heading:hover::before,
+.royal-gradient-heading:hover::after {
+	color: rgba(255, 215, 0, 0.9);
+	text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Hero Breathing Glow Effect */
+@keyframes breathingGlow {
+	0%, 100% {
+		box-shadow: 
+			inset 0 0 120px rgba(218, 165, 32, 0.03),
+			inset 0 0 60px rgba(255, 215, 0, 0.02),
+			0 0 80px rgba(218, 165, 32, 0.01);
+	}
+	50% {
+		box-shadow: 
+			inset 0 0 180px rgba(218, 165, 32, 0.08),
+			inset 0 0 90px rgba(255, 215, 0, 0.05),
+			0 0 120px rgba(218, 165, 32, 0.03);
+	}
+}
+
+.hero-breathing-glow {
+	animation: breathingGlow 6s ease-in-out infinite;
+	position: relative;
+}
+
+.hero-breathing-glow::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse 80% 60% at 50% 40%,
+		rgba(218, 165, 32, 0.02) 0%,
+		rgba(255, 215, 0, 0.01) 30%,
+		transparent 70%
+	);
+	animation: breathingGlow 8s ease-in-out infinite reverse;
+	pointer-events: none;
+}
+
 /* Elegant Pass Card Styling */
 .elegant-pass-card {
 	@apply m-4 w-80 overflow-hidden rounded-xl;
@@ -498,7 +598,7 @@
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	border: 1px solid rgba(218, 165, 32, 0.2);
-	box-shadow: 
+	box-shadow:
 		0 8px 32px rgba(0, 0, 0, 0.6),
 		0 0 0 1px rgba(218, 165, 32, 0.1);
 	transition: all 0.3s ease;
@@ -506,7 +606,7 @@
 
 .elegant-pass-card:hover {
 	border-color: rgba(218, 165, 32, 0.4);
-	box-shadow: 
+	box-shadow:
 		0 12px 48px rgba(0, 0, 0, 0.7),
 		0 0 20px rgba(218, 165, 32, 0.2),
 		0 0 0 1px rgba(218, 165, 32, 0.2);
@@ -514,33 +614,53 @@
 
 /* Royal Contact Form Styling */
 .elegant-contact-form {
-	padding: 2rem;
-	margin: 0;
-	background: linear-gradient(to-br, rgba(0, 0, 0, 0.9), rgba(15, 15, 15, 0.8));
-	border-radius: 1rem;
-	border: 1px solid rgba(218, 165, 32, 0.3);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-}
-
-.royal-input {
-	@apply block w-full rounded-lg p-3 text-sm transition-all duration-300;
+	padding: 2rem !important;
+	margin: 0 !important;
 	background: linear-gradient(to-br, rgba(0, 0, 0, 0.9), rgba(15, 15, 15, 0.8)) !important;
-	border: 1px solid rgba(218, 165, 32, 0.3);
-	color: #f5f5f5 !important;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	border-radius: 1rem !important;
+	border: 1px solid rgba(218, 165, 32, 0.3) !important;
+	backdrop-filter: blur(10px) !important;
+	-webkit-backdrop-filter: blur(10px) !important;
 }
 
-.royal-input::placeholder {
+/* Remove any default margins and backgrounds from form elements */
+.elegant-contact-form * {
+	box-sizing: border-box;
+}
+
+.elegant-contact-form input,
+.elegant-contact-form textarea {
+	margin: 0 !important;
+}
+
+/* Royal Input - Force Dark Styling */
+input.royal-input,
+textarea.royal-input {
+	display: block !important;
+	width: 100% !important;
+	padding: 0.75rem !important;
+	border-radius: 0.5rem !important;
+	font-size: 0.875rem !important;
+	background: linear-gradient(to-br, rgba(0, 0, 0, 0.98), rgba(5, 5, 5, 0.95)) !important;
+	border: 1px solid rgba(218, 165, 32, 0.2) !important;
+	color: #f5f5f5 !important;
+	backdrop-filter: blur(5px) !important;
+	-webkit-backdrop-filter: blur(5px) !important;
+	transition: all 0.3s ease !important;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+input.royal-input::placeholder,
+textarea.royal-input::placeholder {
 	color: rgba(156, 163, 175, 0.7) !important;
 }
 
-.royal-input:focus {
-	outline: none;
-	border-color: rgba(218, 165, 32, 0.6) !important;
-	box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2) !important;
-	background: linear-gradient(to-br, rgba(0, 0, 0, 0.95), rgba(15, 15, 15, 0.85)) !important;
+input.royal-input:focus,
+textarea.royal-input:focus {
+	outline: none !important;
+	border-color: rgba(218, 165, 32, 0.5) !important;
+	box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.15) !important;
+	background: linear-gradient(to-br, rgba(0, 0, 0, 1), rgba(5, 5, 5, 0.98)) !important;
 }
 
 .royal-submit-button {
@@ -560,13 +680,13 @@
 /* Premium Contact Cards - Royal Edition */
 .premium-contact-card {
 	@apply rounded-xl p-6 relative overflow-hidden;
-	background: 
+	background:
 		linear-gradient(135deg, rgba(218, 165, 32, 0.05) 0%, transparent 50%, rgba(218, 165, 32, 0.03) 100%),
 		linear-gradient(to-br, rgba(0, 0, 0, 0.9), rgba(15, 15, 15, 0.8), rgba(5, 5, 5, 0.85));
 	border: 1px solid rgba(218, 165, 32, 0.4);
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
-	box-shadow: 
+	box-shadow:
 		0 10px 40px rgba(0, 0, 0, 0.7),
 		0 0 20px rgba(218, 165, 32, 0.15),
 		inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -594,7 +714,7 @@
 .premium-contact-card:hover {
 	transform: translateY(-6px) scale(1.02);
 	border-color: rgba(218, 165, 32, 0.6);
-	box-shadow: 
+	box-shadow:
 		0 20px 60px rgba(0, 0, 0, 0.8),
 		0 0 40px rgba(218, 165, 32, 0.25),
 		inset 0 2px 0 rgba(255, 255, 255, 0.12),
@@ -607,7 +727,7 @@
 
 .premium-contact-item {
 	@apply relative rounded-lg p-4;
-	background: 
+	background:
 		linear-gradient(135deg, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
 		rgba(0, 0, 0, 0.3);
 	border: 1px solid rgba(218, 165, 32, 0.25);
@@ -618,12 +738,12 @@
 }
 
 .premium-contact-item:hover {
-	background: 
+	background:
 		linear-gradient(135deg, rgba(218, 165, 32, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%),
 		rgba(0, 0, 0, 0.4);
 	border-color: rgba(218, 165, 32, 0.5);
 	transform: translateX(2px);
-	box-shadow: 
+	box-shadow:
 		0 5px 15px rgba(0, 0, 0, 0.5),
 		0 0 10px rgba(218, 165, 32, 0.2);
 }
@@ -631,29 +751,29 @@
 /* Royal Contact Submit Button */
 .royal-contact-submit {
 	@apply w-full px-8 py-4 rounded-xl font-medium text-lg transition-all duration-300;
-	background: linear-gradient(135deg, 
-		rgba(0, 0, 0, 0.9) 0%, 
-		rgba(31, 41, 55, 0.9) 50%, 
+	background: linear-gradient(135deg,
+		rgba(0, 0, 0, 0.9) 0%,
+		rgba(31, 41, 55, 0.9) 50%,
 		rgba(0, 0, 0, 0.9) 100%
 	);
 	color: rgba(218, 165, 32, 0.9);
 	border: 1px solid rgba(218, 165, 32, 0.4);
-	box-shadow: 
+	box-shadow:
 		0 6px 20px rgba(0, 0, 0, 0.6),
 		0 0 15px rgba(218, 165, 32, 0.2),
 		inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .royal-contact-submit:hover {
-	background: linear-gradient(135deg, 
-		rgba(218, 165, 32, 0.1) 0%, 
-		rgba(31, 41, 55, 0.95) 50%, 
+	background: linear-gradient(135deg,
+		rgba(218, 165, 32, 0.1) 0%,
+		rgba(31, 41, 55, 0.95) 50%,
 		rgba(218, 165, 32, 0.1) 100%
 	);
 	color: rgba(255, 215, 0, 1);
 	border-color: rgba(218, 165, 32, 0.7);
 	transform: translateY(-2px);
-	box-shadow: 
+	box-shadow:
 		0 10px 30px rgba(0, 0, 0, 0.7),
 		0 0 25px rgba(218, 165, 32, 0.3),
 		inset 0 1px 0 rgba(255, 255, 255, 0.12);
@@ -727,4 +847,124 @@ html {
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+/* FAQ Section Styling */
+.faq-question {
+	color: rgba(218, 165, 32, 1) !important;
+	font-weight: 600;
+	text-shadow: 0 0 8px rgba(218, 165, 32, 0.3);
+}
+
+.faq-answer {
+	color: rgba(255, 255, 255, 0.95) !important;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+/* Gothic Vintage Accordion Styling */
+.gothic-accordion {
+	background: linear-gradient(135deg, 
+		rgba(0, 0, 0, 0.95) 0%, 
+		rgba(20, 20, 20, 0.9) 50%, 
+		rgba(0, 0, 0, 0.95) 100%
+	);
+	border: 2px solid rgba(218, 165, 32, 0.4);
+	border-radius: 12px;
+	box-shadow: 
+		0 8px 32px rgba(0, 0, 0, 0.6),
+		0 0 20px rgba(218, 165, 32, 0.1),
+		inset 0 1px 0 rgba(218, 165, 32, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.gothic-accordion::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, 
+		transparent 0%, 
+		rgba(218, 165, 32, 0.6) 50%, 
+		transparent 100%
+	);
+}
+
+.gothic-accordion-header {
+	background: linear-gradient(135deg, 
+		rgba(218, 165, 32, 0.1) 0%, 
+		rgba(0, 0, 0, 0.8) 50%, 
+		rgba(218, 165, 32, 0.1) 100%
+	);
+	border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+	color: rgba(218, 165, 32, 1);
+	font-weight: 600;
+	text-shadow: 0 0 10px rgba(218, 165, 32, 0.4);
+	transition: all 0.3s ease;
+}
+
+.gothic-accordion-header:hover {
+	background: linear-gradient(135deg, 
+		rgba(218, 165, 32, 0.2) 0%, 
+		rgba(0, 0, 0, 0.9) 50%, 
+		rgba(218, 165, 32, 0.2) 100%
+	);
+	color: rgba(255, 215, 0, 1);
+	text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.gothic-accordion-content {
+	background: linear-gradient(135deg, 
+		rgba(0, 0, 0, 0.9) 0%, 
+		rgba(15, 15, 15, 0.8) 100%
+	);
+	color: rgba(255, 255, 255, 0.95);
+	border-top: 1px solid rgba(218, 165, 32, 0.2);
+}
+
+/* Gallery Hover Effects */
+.gallery-image-container {
+	position: relative;
+	overflow: hidden;
+	border-radius: 12px;
+	transition: all 0.4s ease;
+}
+
+.gallery-image-container:hover {
+	transform: scale(1.05);
+	box-shadow: 
+		0 15px 40px rgba(0, 0, 0, 0.8),
+		0 0 30px rgba(218, 165, 32, 0.3);
+}
+
+.gallery-golden-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg,
+		rgba(218, 165, 32, 0.1) 0%,
+		rgba(255, 215, 0, 0.05) 50%,
+		rgba(218, 165, 32, 0.1) 100%
+	);
+	opacity: 0;
+	transition: all 0.4s ease;
+}
+
+.gallery-image-container:hover .gallery-golden-overlay {
+	opacity: 1;
+}
+
+.gallery-image-container:hover::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse 60% 40% at 50% 50%,
+		rgba(218, 165, 32, 0.15) 0%,
+		rgba(255, 215, 0, 0.08) 50%,
+		transparent 100%
+	);
+	z-index: 1;
 }
