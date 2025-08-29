@@ -23,8 +23,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ fileUrl, fileName, text
 	return (
 		<Button
 			onClick={handleDownload}
-			variant="secondary"
-			className="flex max-w-[200px] items-center gap-2 sm:max-w-24 md:max-w-32">
+			className="royal-download-button flex items-center gap-2 w-full">
 			{text === "Download" ? <Download size={16} /> : <CalendarDays size={16} />}
 			{text ?? "Download"}
 		</Button>

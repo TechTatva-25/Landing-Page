@@ -1,11 +1,18 @@
 import React from "react"
-import { Cormorant_Garamond, Inter, Lora, Montserrat, Playfair_Display, Source_Sans_3 } from "next/font/google"
+import { Cinzel_Decorative, Cormorant_Garamond, Inter, Lora, Montserrat, Playfair_Display, Source_Sans_3 } from "next/font/google"
 
 import "../styles/globals.css"
 
 import { getMetadata } from "@/lib/_utils"
 
 // Configure Google Fonts
+const cinzelDecorative = Cinzel_Decorative({
+	subsets: ["latin"],
+	weight: ["400"],
+	variable: "--font-cinzel-decorative",
+	display: "swap",
+})
+
 const playfairDisplay = Playfair_Display({
 	subsets: ["latin"],
 	variable: "--font-playfair-display",
@@ -49,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 	return (
 			<html
 				lang="en"
-				className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${montserrat.variable} ${inter.variable} ${lora.variable} ${sourceSans3.variable}`}
+				className={`${cinzelDecorative.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable} ${montserrat.variable} ${inter.variable} ${lora.variable} ${sourceSans3.variable}`}
 			>
 				<head>
 					<link rel="icon" href="/favicon.ico" sizes="any" />

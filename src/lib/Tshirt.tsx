@@ -15,11 +15,11 @@ const Tshirt = (): React.JSX.Element => {
 	}
 
 	return (
-		<section className="px-4 pb-4" id="tshirt">
+		<section className="px-4 py-16 dark-bg" id="tshirt">
 			<div className="my-8 flex w-full items-center">
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-				<span className="mx-8 text-3xl font-bold text-blue-900">T-Shirt</span>
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
+				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold" />
+				<span className="mx-8 section-heading royal-gold heading-font">Merchandise</span>
+				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white" />
 			</div>
 
 			{/* Image Container */}

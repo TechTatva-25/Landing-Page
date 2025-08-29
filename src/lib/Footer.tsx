@@ -5,7 +5,7 @@ import { FC, JSX } from "react"
 
 import { Button } from "@/components/ui/button"
 import DownloadButton from "@/lib/DownloadButton"
-import Socials from "@/lib/Socials"
+
 
 interface DownloadItem {
 	label: string
@@ -29,88 +29,97 @@ const Footer: FC = (): JSX.Element => {
 
 	const downloads: FooterItem[] = [
 		{
-			label: "Sports Rulebook",
-			fileUrl: "/rulebooks/revels_2025_sports_rulebook.pdf",
-			fileName: "revels_2025_sports_rulebook.pdf",
+			label: "TechTatva Rulebook",
+			fileUrl: "/rulebooks/techtatva_2025_rulebook.pdf",
+			fileName: "techtatva_2025_rulebook.pdf",
 			text: "Download",
 			type: "download",
 		},
 		{
-			label: "Cultural Rulebook",
-			fileUrl: "/rulebooks/revels_2025_cultural_rulebook.pdf",
-			fileName: "revels_2025_cultural_rulebook.pdf",
+			label: "Event Timetable",
+			fileUrl: "/rulebooks/techtatva_2025_timetable.pdf",
+			fileName: "techtatva_2025_timetable.pdf",
 			text: "Download",
 			type: "download",
 		},
 		{
-			label: "Timetable",
-			route: "/timetable", // Replace with your desired route
+			label: "Registration Guide",
+			route: "/registration", // Replace with your desired route
 			text: "View",
 			type: "route",
 		},
 	]
 
 	return (
-		<div className="bg-gray-900 text-gray-300">
-			<div className="mx-auto max-w-7xl px-4 pb-4 pt-12 md:px-6">
+		<footer className="relative bg-black text-white">
+			{/* Subtle overlay - matching hero section */}
+			<div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+			<div className="absolute inset-0 bg-gradient-radial-blur" />
+			
+			<div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
 				{/* Downloads Section */}
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-					{downloads.map((item, index) => (
-						<div
-							key={index}
-							className="flex flex-col items-center justify-center space-y-2 p-4 text-center">
-							<h3 className="mb-1 font-semibold text-white">{item.label}</h3>
-							{item.type === "download" ? (
-								<DownloadButton fileUrl={item.fileUrl} fileName={item.fileName} text={item.text} />
-							) : (
-								<Button
-									onClick={() => router.push(item.route)}
-									variant="secondary"
-									className="flex items-center gap-2">
-									{item.text}
-								</Button>
-							)}
-						</div>
-					))}
+				<div className="mb-16">
+					<h2 className="text-center text-3xl font-bold royal-gold heading-font mb-12">Resources</h2>
+					<div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+						{downloads.map((item, index) => (
+							<div key={index} className="elegant-footer-card">
+								<h3 className="mb-4 text-xl font-semibold royal-gold heading-font">{item.label}</h3>
+								{item.type === "download" ? (
+									<DownloadButton fileUrl={item.fileUrl} fileName={item.fileName} text={item.text} />
+								) : (
+									<Button
+										onClick={() => router.push(item.route)}
+										className="elegant-footer-button">
+										{item.text}
+									</Button>
+								)}
+							</div>
+						))}
+					</div>
 				</div>
 
-				<div className="my-12 flex flex-col items-center justify-between sm:mx-24 sm:flex-row sm:items-start lg:mx-32 xl:mx-36">
-					<div className="flex flex-col items-center space-y-4 sm:items-start">
-						<h3 className="text-lg font-semibold text-white">Address</h3>
-						<p className="text-center sm:text-left">
-							Manipal Institute of Technology
-							<br />
-							Manipal Academy of Higher Education (MAHE)
-							<br />
-							Manipal, Karnataka 576104
-						</p>
-
-						{/* <div className="static mb-12 flex w-full justify-center sm:mt-0 sm:hidden sm:w-fit">
-							<Button
-								onClick={() => window.open("https://map.revelsmit.in")}
-								variant="secondary"
-								className="flex max-w-96 items-center gap-2 sm:max-w-24">
-								Explore MIT
-							</Button>
-						</div> */}
-					</div>
-
-					<div className="mt-8 sm:mt-0">
-						<Socials />
-						<div className="p-5">
-							<div className="mt-8 flex w-full justify-center sm:mt-0 sm:w-fit">
-								<Button
-									onClick={() => router.push("/team")}
-									variant="secondary"
-									className="flex max-w-96 items-center gap-2 sm:max-w-24">
-									Team
-								</Button>
-							</div>
+				{/* Main Footer Content */}
+				<div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+					{/* Address */}
+					<div className="space-y-6">
+						<h3 className="text-xl font-bold royal-gold heading-font">Address</h3>
+						<div className="space-y-3 text-gray-300 body-font leading-relaxed">
+							<p className="text-white font-semibold">Manipal Institute of Technology</p>
+							<p>Manipal Academy of Higher Education (MAHE)</p>
+							<p>Manipal, Karnataka 576104</p>
 						</div>
 					</div>
+
+					{/* Social Links */}
+					<div className="space-y-6">
+						<h3 className="text-xl font-bold royal-gold heading-font">Connect With Us</h3>
+						<div className="space-y-3">
+							<a href="#" className="elegant-social-link">Instagram</a>
+							<a href="#" className="elegant-social-link">Twitter</a>
+							<a href="#" className="elegant-social-link">LinkedIn</a>
+							<a href="#" className="elegant-social-link">YouTube</a>
+						</div>
+					</div>
+
+					{/* Team */}
+					<div className="space-y-6">
+						<h3 className="text-xl font-bold royal-gold heading-font">Team</h3>
+						<Button
+							onClick={() => router.push("/team")}
+							className="elegant-footer-button w-full sm:w-auto">
+							Meet the Team
+						</Button>
+					</div>
+				</div>
+
+				{/* Copyright */}
+				<div className="mt-16 pt-8 border-t border-royal-gold/20 text-center">
+					<p className="text-gray-400 body-font">
+						© 2025 TechTatva. All rights reserved. | Manipal Institute of Technology
+					</p>
 				</div>
 			</div>
-		</div>
+		</footer>
 	)
 }
 

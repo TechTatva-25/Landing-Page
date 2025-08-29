@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -15,11 +16,12 @@ import {
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-import backgroundImageDesktop from "../images/desktop_new.jpg"
-import logoImage from "../images/elysium_logo.png"
-import backgroundImageMobile from "../images/hero_mobile_2.jpg"
+import backgroundImageDesktop from "../../public/images_tt/Untitled design (2).png"
+import logoImage from "../../public/images_tt/Untitled design (1).png"
+import backgroundImageMobile from "../../public/images_tt/Untitled design (2).png"
 // import bannerImage from "../images/proshowentry.png"
 import CountdownTimer from "./CountdownTimer"
+import Particles from "./Particles"
 // import FullScreenBanner from "./fullscreenbanner" // Import the new component
 
 const Background = (): JSX.Element => {
@@ -27,6 +29,7 @@ const Background = (): JSX.Element => {
 	const [isLogoLoaded, setIsLogoLoaded] = useState<boolean>(false)
 	const [isMobile, setIsMobile] = useState<boolean>(false)
 	const [showPolicy, setShowPolicy] = useState<boolean>(false)
+	const [showLogo, setShowLogo] = useState<boolean>(false)
 	const router = useRouter()
 
 	useEffect((): (() => void) => {
@@ -51,11 +54,11 @@ const Background = (): JSX.Element => {
 	}
 
 	return (
-		<div className="relative w-full sm:opacity-100">
+		<div className="relative w-full bg-black sm:opacity-100">
 			{/* Add the FullScreenBanner component */}
-			{/* <FullScreenBanner imageSrc={bannerImage} altText="Revels '25 Elysium Event Lineup" autoCloseTime={10000} /> */}
+			{/* <FullScreenBanner imageSrc={bannerImage} altText="TechTatva '25 Event Lineup" autoCloseTime={10000} /> */}
 
-			<div className="relative h-screen w-full overflow-hidden" id="home">
+			<div className="relative h-screen w-full overflow-hidden bg-black" id="home">
 				{/* Background Image */}
 				<Image
 					src={isMobile ? backgroundImageMobile : backgroundImageDesktop}
@@ -65,22 +68,54 @@ const Background = (): JSX.Element => {
 					className={`object-cover transition-opacity duration-1000 ${
 						isLoaded ? "opacity-100" : "opacity-0"
 					}`}
-					onLoad={(): void => setIsLoaded(true)}
+					onLoad={(): void => {
+						setIsLoaded(true)
+						// Start logo animation immediately after background loads
+						setTimeout(() => setShowLogo(true), 200)
+					}}
 					sizes="100vw"
 					quality={90}
 				/>
 
-				{/* Black Overlay */}
-				<div className="absolute inset-0 bg-black opacity-50" />
+				{/* Black Overlay with Subtle Blur */}
+				<div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+				
+				{/* Vignette Effect with Blur Fade */}
+				<div className="absolute inset-0 bg-gradient-radial-blur" />
+
+				{/* Floating Particles */}
+				<Particles />
 
 				{/* Content Container */}
 				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-					{/* Logo Container */}
-					<div className="mb-2 md:mb-4">
-						<div
-							className={`relative h-96 w-96 transform transition-all duration-1000 ease-out md:h-[800px] md:w-[800px] ${
-								isLogoLoaded ? "scale-100 opacity-100" : "scale-95 opacity-0"
-							}`}>
+					{/* Logo Container with Smooth Fade */}
+					<div className="">
+						<motion.div
+							className="relative h-96 w-96 md:h-[650px] md:w-[650px]"
+							initial={{ 
+								opacity: 0,
+								scale: 0.8
+							}}
+							animate={showLogo ? { 
+								opacity: [0, 1, 1],
+								scale: [0.8, 1.1, 0.98]
+							} : {
+								opacity: 0,
+								scale: 0.8
+							}}
+							transition={{
+								opacity: {
+									duration: 3.5,
+									times: [0, 0.7, 1],
+									ease: "easeOut"
+								},
+								scale: {
+									duration: 3.5,
+									times: [0, 0.6, 1],
+									ease: [0.25, 0.46, 0.45, 0.94]
+								}
+							}}
+						>
 							<Image
 								src={logoImage}
 								alt="Logo"
@@ -90,16 +125,38 @@ const Background = (): JSX.Element => {
 								priority
 								onLoad={(): void => setIsLogoLoaded(true)}
 							/>
-						</div>
+						</motion.div>
 					</div>
 
 					{/* Button Container */}
-					<div className="my-2 mb-24 transform transition-all duration-1000 ease-out md:mt-[-150px]">
-						<Button
-							className="bg-inherit-800 z-30 transform rounded-lg p-6 text-xl font-extrabold shadow-sm shadow-white transition-all duration-300 hover:scale-105 hover:bg-blue-900"
-							onClick={handleRegisterClick}>
-							Register Now
-						</Button>
+					<div className="mt-4 mb-16 transform transition-all duration-1000 ease-out">
+						<motion.div
+							initial={{ 
+								opacity: 0,
+								y: 30,
+								scale: 0.9
+							}}
+							animate={showLogo ? { 
+								opacity: 1,
+								y: 0,
+								scale: 1
+							} : {
+								opacity: 0,
+								y: 30,
+								scale: 0.9
+							}}
+							transition={{
+								delay: 2.5,
+								duration: 1.2,
+								ease: [0.25, 0.46, 0.45, 0.94]
+							}}
+						>
+							<Button
+								className="glassmorphic-button z-30 transform rounded-2xl px-12 py-6 text-xl font-bold heading-font bg-gradient-to-br from-black/90 to-gray-900/90 backdrop-blur-xl text-white shadow-2xl shadow-black/50 transition-all duration-300 hover:scale-105 hover:from-royal-gold/30 hover:to-yellow-600/20 hover:shadow-royal-gold/40 hover:text-royal-gold"
+								onClick={handleRegisterClick}>
+								Register Now
+							</Button>
+						</motion.div>
 					</div>
 				</div>
 

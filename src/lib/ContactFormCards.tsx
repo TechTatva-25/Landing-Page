@@ -8,7 +8,7 @@ const ContactDetails2: FC = (): JSX.Element => {
 		{
 			id: "technical",
 			title: "Technical Queries",
-			color: "from-blue-500 to-purple-500",
+			color: "from-royal-gold to-yellow-500",
 			contacts: [
 				{
 					id: "1",
@@ -24,8 +24,8 @@ const ContactDetails2: FC = (): JSX.Element => {
 		},
 		{
 			id: "cultural",
-			title: "Cultural and Proshow Queries",
-			color: "from-green-500 to-teal-500",
+			title: "Innovation and Tech Showcase",
+			color: "from-royal-gold to-yellow-500",
 			contacts: [
 				{
 					id: "3",
@@ -40,9 +40,9 @@ const ContactDetails2: FC = (): JSX.Element => {
 			],
 		},
 		{
-			id: "sports",
-			title: "Sports Queries",
-			color: "from-orange-500 to-red-500",
+			id: "workshops",
+			title: "Workshops and Competitions",
+			color: "from-royal-gold to-yellow-500",
 			contacts: [
 				{
 					id: "5",
@@ -57,9 +57,9 @@ const ContactDetails2: FC = (): JSX.Element => {
 			],
 		},
 		{
-			id: "nonmahe",
-			title: "Non-MAHE Student Queries",
-			color: "from-purple-500 to-pink-500",
+			id: "registration",
+			title: "Registration and General Queries",
+			color: "from-royal-gold to-yellow-500",
 			contacts: [
 				{
 					id: "7",
@@ -75,41 +75,77 @@ const ContactDetails2: FC = (): JSX.Element => {
 		},
 	]
 
-	return (
+				return (
 		<div className="w-full md:mt-4 md:px-8">
-			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-				{contactGroups.map((group) => (
-					<div key={group.id} className="rounded-lg border p-4 shadow-md">
-						<div className="mb-6 flex items-center">
-							<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
-							<span className="mx-4 text-center text-xl font-semibold">{group.title}</span>
-							<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
+			<div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+				{contactGroups.map((group, index) => (
+					<div key={group.id} className="premium-contact-card group">
+						{/* Royal Header */}
+						<div className="mb-6 relative">
+							<div className="flex items-center">
+								<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
+								<span className="mx-4 text-center text-xl font-normal heading-font royal-gradient-heading px-3">
+									{group.title}
+								</span>
+								<hr className={`h-[2px] flex-grow border-0 bg-gradient-to-r ${group.color}`} />
+							</div>
+							{/* Royal decorative accent */}
+							<div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-4 h-4 bg-royal-gold rounded-full opacity-60"></div>
 						</div>
 
+						{/* Premium Contact Items */}
 						<div className="space-y-4">
 							{group.contacts.map((contact) => (
 								<div
 									key={contact.id}
-									className="flex items-center justify-between rounded-lg bg-gray-50 sm:p-4">
-									<span className="font-medium text-gray-900">{contact.name}</span>
-									<a
-										href={`tel:${contact.phone}`}
-										className="flex items-center gap-2 text-gray-700 transition-colors hover:text-blue-600">
-										<Phone className="h-4 w-4" />
-										<span>{contact.phone}</span>
-									</a>
+									className="premium-contact-item">
+									<div className="flex items-center justify-between w-full">
+										<div className="flex flex-col">
+											<span className="font-medium text-white body-font text-lg">{contact.name}</span>
+											<span className="text-royal-gold text-sm heading-font opacity-80">Team Lead</span>
+										</div>
+										<div className="flex flex-col items-end">
+											<div className="flex items-center gap-2 text-royal-gold">
+												<Phone className="h-4 w-4" />
+												<span className="font-medium">{contact.phone}</span>
+											</div>
+											<a
+												href={`tel:${contact.phone}`}
+												className="text-gray-400 text-xs mt-1 hover:text-royal-gold transition-colors">
+												Click to call
+											</a>
+										</div>
+									</div>
+									{/* Contact item glow effect */}
+									<div className="absolute inset-0 bg-gradient-to-r from-royal-gold/5 via-transparent to-royal-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
 								</div>
 							))}
 
-							{group.id === "nonmahe" && (
-								<div className="mt-4 flex items-center justify-center gap-2 text-gray-700">
-									<Mail className="h-4 w-4" />
-									<a href="mailto:outstation.revels@manipal.edu" className="hover:text-blue-600">
-										outstation.revels@manipal.edu
-									</a>
+							{group.id === "registration" && (
+								<div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-royal-gold/10 to-transparent border border-royal-gold/30">
+									<div className="flex items-center justify-between w-full">
+										<div className="flex flex-col">
+											<span className="font-medium text-white body-font text-lg">General Email</span>
+											<span className="text-royal-gold text-sm heading-font opacity-80">Support Team</span>
+										</div>
+										<div className="flex flex-col items-end">
+											<div className="flex items-center gap-2 text-royal-gold">
+												<Mail className="h-4 w-4" />
+												<span className="font-medium">info@techtatva.in</span>
+											</div>
+											<a
+												href="mailto:info@techtatva.in"
+												className="text-gray-400 text-xs mt-1 hover:text-royal-gold transition-colors">
+												Click to email
+											</a>
+										</div>
+									</div>
 								</div>
 							)}
 						</div>
+
+						{/* Royal bottom accent */}
+						<div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-royal-gold/30 to-transparent"></div>
 					</div>
 				))}
 			</div>

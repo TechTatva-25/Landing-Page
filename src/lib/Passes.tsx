@@ -8,31 +8,34 @@ import PassCard from "./PassCard"
 
 const Passes = (): React.JSX.Element => {
 	return (
-		<div className="mt-20" id="passes">
+		<div className="px-4 py-16 bg-black" id="passes">
 			<div className="mb-8 flex items-center">
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900"></hr>
-				<span className="mx-8 text-3xl font-bold text-blue-900">Passes</span>
-				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white"></hr>
+				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold"></hr>
+				<span className="mx-8 section-heading royal-gold heading-font">Passes</span>
+				<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white"></hr>
 			</div>
 
 			<div className="mx-auto mb-12 flex max-w-screen-xl items-center justify-center">
-				<div className="flex flex-wrap justify-center gap-4">
-					<PassCard
-						link="https://register.revelsmit.in/events?id=63f4c8a5b80f7e5877c2c9c9&card=FLAGSHIP"
-						passType="Flagship"
-						description="To get access to participate in all the events of TechTatva, including our trendy flagship events and general events, you buy the flagship card."
-						imageUrl={flagship}></PassCard>
-					<PassCard
-						link="https://register.revelsmit.in/events?id=63ef4583c44745229f119132&card=GENERAL"
-						passType="General"
-						description="There are over 35 events apart from the flagship events and to get access to participate in those events, you need to buy the general card."
-						imageUrl={general}></PassCard>
-					<PassCard
-						link="https://register.revelsmit.in/proshow?id=63ef728c013f6453b98b6285"
-						passType="Proshow"
-						description="Experience one of the grandest spectacles of Revels, featuring renowned artists, electrifying performances across diverse genres — including stand-up comedy, celebrated singers, and top bands — all coming together for an unforgettable show!"
-						imageUrl={proshow}></PassCard>
-				</div>
+							<div className="flex flex-wrap justify-center gap-6">
+				<PassCard
+					index={0}
+					link="https://register.techtatva.in/events?card=FLAGSHIP"
+					passType="Flagship Pass"
+					description="Access to all TechTatva 25 events including cutting-edge workshops, coding competitions, tech talks, and our prestigious flagship events showcasing the latest innovations in technology."
+					imageUrl={flagship}></PassCard>
+				<PassCard
+					index={1}
+					link="https://register.techtatva.in/events?card=GENERAL"
+					passType="General Pass"
+					description="Participate in 35+ technical events including hackathons, robotics competitions, AI/ML workshops, and networking sessions with industry professionals and tech enthusiasts."
+					imageUrl={general}></PassCard>
+				<PassCard
+					index={2}
+					link="https://register.techtatva.in/proshow"
+					passType="Tech Showcase"
+					description="Witness the grandest technology showcase featuring live demonstrations, product launches, startup pitches, and keynote speeches from industry leaders and tech innovators."
+					imageUrl={proshow}></PassCard>
+			</div>
 			</div>
 			{/* <ButtonCustom link={"/gallery"} buttonContent="view passes"></ButtonCustom> */}
 		</div>

@@ -49,31 +49,32 @@ const FloatingHeader = (): React.JSX.Element => {
 	}, [])
 
 	return (
-		<div className="fixed left-1/2 z-50 mt-4 flex -translate-x-1/2 items-center justify-center rounded">
-			<ul className="flex overflow-x-auto scroll-smooth rounded-2xl bg-[#1e1e1e] bg-opacity-60 px-3 text-white shadow-lg backdrop-blur-md backdrop-filter transition-all duration-300 hover:bg-opacity-70 sm:px-8">
+		<div className="fixed left-1/2 z-50 mt-4 flex -translate-x-1/2 items-center justify-center">
+			<nav className="royal-navbar">
+				<ul className="flex overflow-x-auto scroll-smooth rounded-2xl bg-gradient-to-r from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl px-4 sm:px-8 py-2 text-white shadow-2xl shadow-black/50 transition-all duration-500 hover:shadow-royal-gold/20">
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base">
-					<a className="cursor-pointer transition duration-150 ease-in hover:text-blue-600" href="#home">
+					<a className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95" href="#home">
 						Home
 					</a>
 				</li>
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base">
-					<a className="cursor-pointer transition duration-150 ease-in hover:text-blue-600" href="#passes">
+					<a className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95" href="#passes">
 						Passes
 					</a>
 				</li>
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base">
-					<a className="cursor-pointer transition duration-150 ease-in hover:text-blue-600" href="#events">
+					<a className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95" href="#events">
 						Events
 					</a>
 				</li>
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base">
-					<a className="cursor-pointer transition duration-150 ease-in hover:text-blue-600" href="#gallery">
+					<a className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95" href="#gallery">
 						Gallery
 					</a>
 				</li>
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base">
 					<a
-						className="cursor-pointer transition duration-150 ease-in hover:text-blue-600"
+						className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95"
 						onClick={() => {
 							router.push("/proshow")
 						}}>
@@ -82,7 +83,7 @@ const FloatingHeader = (): React.JSX.Element => {
 				</li>
 				<li className="mx-2 my-2 hidden text-xs sm:mx-4 sm:text-base xl:flex">
 					<a
-						className="cursor-pointer transition duration-150 ease-in hover:text-blue-600"
+						className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95"
 						onClick={() => {
 							window.open("https://map.revelsmit.in")
 						}}>
@@ -91,7 +92,7 @@ const FloatingHeader = (): React.JSX.Element => {
 				</li>
 				<li className="mx-2 my-2 text-xs sm:mx-4 sm:text-base xl:hidden">
 					<a
-						className="cursor-pointer transition duration-150 ease-in hover:text-blue-600"
+						className="cursor-pointer heading-font font-medium transition-all duration-300 ease-out hover:text-royal-gold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95"
 						onClick={() => {
 							window.open("https://map.revelsmit.in")
 						}}>
@@ -99,6 +100,7 @@ const FloatingHeader = (): React.JSX.Element => {
 					</a>
 				</li>
 			</ul>
+			</nav>
 		</div>
 	)
 }

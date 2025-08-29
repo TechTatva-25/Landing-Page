@@ -44,26 +44,25 @@ const ContactUs = (): JSX.Element => {
 			})
 	}
 
-	return (
-		<section className="container mb-16 bg-white dark:bg-gray-900 sm:mt-8" id="contact">
-			<div className="px-0 sm:px-8">
-				<div className="mb-8 flex sm:items-center">
-					<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900 opacity-30 sm:visible"></hr>
-					<span className="mx-8 flex w-full justify-center text-4xl font-bold text-blue-900 sm:w-fit">
+			return (
+			<section className="container mb-16 bg-black py-16" id="contact">
+				<div className="px-0 sm:px-8">
+					<div className="mb-8 flex sm:items-center">
+						<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-royal-gold sm:visible"></hr>
+											<span className="mx-8 flex w-full justify-center section-heading heading-font royal-gradient-heading sm:w-fit">
 						Contact Us
 					</span>
-					<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white opacity-30 sm:visible"></hr>
-				</div>
+						<hr className="invisible h-[2px] flex-grow border-0 bg-gradient-to-r from-royal-gold to-white sm:visible"></hr>
+					</div>
 				<div className="flex flex-col items-center">
 					<div className="flex max-w-4xl flex-col items-center justify-center gap-16 md:items-start md:gap-8">
 						<div className="w-full md:px-8">
 							{!submitted && (
-								<p className="mb-4 text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-									Got a technical issue? Need details about passes? Want to send feedback about an
-									event?
-									<p className="inline sm:hidden"> </p>
+								<p className="mb-6 text-center text-gray-300 body-font sm:text-xl">
+									Have questions about TechTatva 25? Need technical support or event details?
+									<span className="inline sm:hidden"> </span>
 									<br className="hidden sm:block" />
-									Let us know.
+									We're here to help.
 								</p>
 							)}
 							{submitted && (
@@ -78,18 +77,18 @@ const ContactUs = (): JSX.Element => {
 									onSubmit={(e) => {
 										void handleSubmit(e)
 									}}
-									className="mt-8 space-y-5 md:mt-0">
+									className="mt-8 space-y-6 md:mt-0 elegant-contact-form">
 									<div>
 										<label
-											htmlFor="nane"
-											className="mb-2 block font-medium text-gray-900 dark:text-gray-300">
+											htmlFor="name"
+											className="mb-2 block font-medium text-royal-gold heading-font">
 											Name
 										</label>
 										<input
 											type="text"
 											id="name"
 											name="name"
-											className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+											className="royal-input"
 											placeholder="Enter your full name"
 											value={formData.name}
 											onChange={handleChange}
@@ -99,43 +98,42 @@ const ContactUs = (): JSX.Element => {
 									<div>
 										<label
 											htmlFor="email"
-											className="mb-2 block font-medium text-gray-900 dark:text-gray-300">
+											className="mb-2 block font-medium text-royal-gold heading-font">
 											Email
 										</label>
 										<input
 											type="email"
 											id="email"
 											name="email"
-											className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-											placeholder="Enter your email ID"
+											className="royal-input"
+											placeholder="Enter your email address"
 											value={formData.email}
 											onChange={handleChange}
 											required
 										/>
 									</div>
-									<div className="sm:col-span-2">
+									<div>
 										<label
 											htmlFor="query"
-											className="mb-2 block font-medium text-gray-900 dark:text-gray-400">
+											className="mb-2 block font-medium text-royal-gold heading-font">
 											Message
 										</label>
 										<textarea
 											id="query"
 											name="query"
 											rows={6}
-											className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-											placeholder="Enter your message"
+											className="royal-input"
+											placeholder="Tell us about your query or feedback regarding TechTatva 25"
 											value={formData.query}
 											onChange={handleChange}
 										/>
 									</div>
 									<div className="flex w-full justify-center">
-										<Button
-											type="submit"
-											variant="destructive"
-											className="flex w-full items-center gap-2 bg-blue-900 hover:bg-blue-700">
-											Submit
-										</Button>
+																		<button
+									type="submit"
+									className="glassmorphic-button royal-contact-submit">
+									<span className="heading-font">Send Message</span>
+								</button>
 									</div>
 								</form>
 							)}
