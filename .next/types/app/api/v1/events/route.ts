@@ -1,4 +1,4 @@
-// File: D:\TechTatva\Landing-Page\src\app\api\v1\events\route.ts
+// File: /Users/shubhampanda/Desktop/newmhash/Landing-Page/src/app/api/v1/events/route.ts
 import * as entry from '../../../../../../src/app/api/v1/events/route.js'
 import type { NextRequest } from 'next/server.js'
 

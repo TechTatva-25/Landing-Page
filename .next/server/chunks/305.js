@@ -1,1 +1,0 @@
-"use strict";exports.id=305,exports.ids=[305],exports.modules={6305:(e,t,r)=>{r.r(t),r.d(t,{default:()=>s});let s=(0,r(8570).createProxy)(String.raw`D:\TechTatva\Landing-Page\src\lib\Events.tsx#default`)}};

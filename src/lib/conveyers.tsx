@@ -1,7 +1,6 @@
 "use client"
 
 // import React, { useState } from "react"
-import { Home } from "lucide-react"
 import Image from "next/image"
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import styles from "@/styles/passes.module.css"
@@ -13,9 +12,10 @@ import ahmadImg from "@/images/ahmad.jpeg"
 import pulkitImg from "@/images/Pulkit.jpeg"
 import dillonImg from "@/images/dillon.jpg"
 import palakImg from "@/images/palak.jpg"
-import { useRouter } from "next/navigation"
 import React from "react"
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
+import FloatingHeader from "./FloatingHeader"
 
 
 
@@ -79,25 +79,21 @@ const Conveners = [
 
 const sectionOrder = [
 	{ title: "Conveners", members: Conveners },
-	{ title: "Technical Core Committee", members: technicalCC },
+	{ title: "Developers", members: technicalCC },
 ];
 
-const ContactGrid = ({ backToHomeButton = true }: { backToHomeButton?: boolean }): React.JSX.Element => {
-	const router = useRouter();
+const ContactGrid = (): React.JSX.Element => {
 	return (
-		<>
-			<div className="mx-auto mt-8 max-w-7xl px-4 md:p-6">
-				<div className="mb-8 flex items-center">
-					<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-					<span className="mx-8 text-4xl md:text-5xl font-bold heading-font" style={{color: '#f1d38a', textShadow: '0 2px 8px #000, 0 1px 0 #000'}}>Meet the Team</span>
-					<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
+		<div className="min-h-screen w-full" style={{background: 'linear-gradient(135deg, #E8E6D8 0%, #D8D4C8 25%, #C8C4B8 50%, #B8B4A8 75%, #A8A498 100%)'}}>
+			<FloatingHeader />
+			<div className="mx-auto pt-28 pb-8 max-w-7xl px-4 md:px-6">
+				<div className="mb-12 flex items-center justify-center">
+					<span className={`${styles.passesHeading} heading-font`} style={{fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)'}}>Meet the Team</span>
 				</div>
 				{sectionOrder.map((section) => (
 					<div key={section.title} className="mb-16">
-						<div className="mb-8 flex items-center">
-							<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-							<span className="mx-8 text-2xl md:text-3xl font-bold heading-font" style={{color: '#f1d38a', textShadow: '0 2px 8px #000, 0 1px 0 #000'}}>{section.title}</span>
-							<hr className="h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
+						<div className="mb-8 flex items-center justify-center">
+							<span className={`${styles.passesHeading} heading-font`} style={{fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)'}}>{section.title}</span>
 						</div>
 						<div className={`grid gap-6 place-items-center ${section.members.length === 1 ? "grid-cols-1" : section.members.length === 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}>
 							{section.members.map((member) => (
@@ -106,7 +102,7 @@ const ContactGrid = ({ backToHomeButton = true }: { backToHomeButton?: boolean }
 										<CardTitle className="heading-font text-2xl sm:text-3xl font-bold text-center mb-2" style={{color: '#f1d38a', textShadow: '0 2px 8px #000, 0 1px 0 #000', background: 'none', WebkitBackgroundClip: 'initial', fontFamily: 'var(--font-cinzel-decorative), serif'}}>{member.name}</CardTitle>
 									</CardHeader>
 									<CardContent className="pb-2 w-full flex flex-col items-center">
-										<div className="relative w-24 sm:w-28 h-24 sm:h-28 overflow-hidden rounded-full flex items-center justify-center bg-gray-200">
+										<div className="relative w-24 sm:w-28 h-24 sm:h-28 overflow-hidden rounded-full flex items-center justify-center bg-gray-200" style={{aspectRatio: '1/1'}}>
 											<Image
 												src={member.image}
 												alt={member.name}
@@ -120,13 +116,13 @@ const ContactGrid = ({ backToHomeButton = true }: { backToHomeButton?: boolean }
 									</CardContent>
 									<CardFooter className="pt-2 w-full flex justify-center gap-4">
 										{member.instagram && (
-											<a href={member.instagram} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-blue-200 text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors shadow-sm" aria-label="Instagram">
-												<FaInstagram className="w-5 h-5" />
+											<a href={member.instagram} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-full border-2 border-[#704214] text-[#704214] bg-[#F5F5DC] hover:bg-[#FFFACD] transition-colors duration-200" aria-label="Instagram" style={{aspectRatio: '1/1'}}>
+												<FontAwesomeIcon icon={faInstagram} className="w-5 h-5 font-bold" />
 											</a>
 										)}
 										{member.linkedin && (
-											<a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-blue-200 text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors shadow-sm" aria-label="LinkedIn">
-												<FaLinkedinIn className="w-5 h-5" />
+											<a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center rounded-full border-2 border-[#704214] text-[#704214] bg-[#F5F5DC] hover:bg-[#FFFACD] transition-colors duration-200" aria-label="LinkedIn" style={{aspectRatio: '1/1'}}>
+												<FontAwesomeIcon icon={faLinkedinIn} className="w-5 h-5 font-bold" />
 											</a>
 										)}
 									</CardFooter>
@@ -136,22 +132,7 @@ const ContactGrid = ({ backToHomeButton = true }: { backToHomeButton?: boolean }
 					</div>
 				))}
 			</div>
-			{/* Developers removed: not present in file */}
-			<div className="mx-auto max-w-7xl">
-				{backToHomeButton && (
-					<div className="mb-8 flex w-full justify-center">
-						<hr className="mt-4 h-[2px] flex-grow border-0 bg-gradient-to-r from-white to-blue-900" />
-						<button
-							onClick={() => router.push("/")}
-							className="mx-6 flex w-full max-w-96 items-center justify-center gap-2 rounded-lg bg-blue-900 px-4 py-2 text-white transition-colors hover:bg-blue-700">
-							<Home className="h-5 w-5" />
-							<span>Back to Home</span>
-						</button>
-						<hr className="mt-4 h-[2px] flex-grow border-0 bg-gradient-to-r from-blue-900 to-white" />
-					</div>
-				)}
-			</div>
-		</>
+		</div>
 	);
 };
 

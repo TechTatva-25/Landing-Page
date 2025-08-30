@@ -1,1 +1,0 @@
-"use strict";exports.id=548,exports.ids=[548],exports.modules={9548:(t,e,r)=>{r.r(e),r.d(e,{default:()=>s});let s=(0,r(8570).createProxy)(String.raw`D:\TechTatva\Landing-Page\src\lib\Tshirt.tsx#default`)}};

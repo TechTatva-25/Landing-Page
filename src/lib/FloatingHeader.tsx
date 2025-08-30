@@ -93,9 +93,9 @@ const FloatingHeader = (): React.JSX.Element => {
 	}, [pathname])
 
 	return (
-		<div className="fixed left-1/2 z-50 mt-2 sm:mt-4 flex w-[calc(100%-2rem)] sm:w-auto -translate-x-1/2 items-center justify-center">
-			<nav className="royal-navbar w-full sm:w-auto">
-				<ul className="hover:shadow-royal-gold/20 flex overflow-x-auto scroll-smooth rounded-xl sm:rounded-2xl bg-gradient-to-r from-black/90 via-gray-900/95 to-black/90 px-3 sm:px-4 lg:px-8 py-2 sm:py-2 text-white shadow-2xl shadow-black/50 backdrop-blur-xl transition-all duration-500 scrollbar-hide">
+		<div className="fixed left-1/2 top-2 z-50 flex w-[calc(100%-1rem)] max-w-4xl -translate-x-1/2 items-center justify-center px-2 sm:px-4">
+			<nav className="royal-navbar w-full">
+				<ul className="hover:shadow-royal-gold/20 flex items-center justify-center overflow-x-auto scroll-smooth rounded-xl sm:rounded-2xl bg-gradient-to-r from-black/90 via-gray-900/95 to-black/90 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-white shadow-2xl shadow-black/50 backdrop-blur-xl transition-all duration-500 scrollbar-hide">
 					<li className="mx-1.5 sm:mx-2 lg:mx-4 my-1 sm:my-2 text-xs sm:text-sm lg:text-base flex-shrink-0">
 						<a
 							className="heading-font hover:text-royal-gold cursor-pointer font-medium transition-all duration-300 ease-out hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(218,165,32,0.6)] active:scale-95 whitespace-nowrap"
