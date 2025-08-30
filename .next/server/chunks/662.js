@@ -1,1 +1,1 @@
-"use strict";exports.id=662,exports.ids=[662],exports.modules={8662:(e,s,r)=>{r.r(s),r.d(s,{default:()=>t});let t=(0,r(8570).createProxy)(String.raw`/Users/shubhampanda/Desktop/newmhash/Landing-Page/src/lib/Resources.tsx#default`)}};
+"use strict";exports.id=662,exports.ids=[662],exports.modules={8662:(e,t,r)=>{r.r(t),r.d(t,{default:()=>s});let s=(0,r(8570).createProxy)(String.raw`D:\TechTatva\Landing-Page\src\lib\Resources.tsx#default`)}};

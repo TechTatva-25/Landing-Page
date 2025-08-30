@@ -1,1 +1,1 @@
-"use strict";exports.id=702,exports.ids=[702],exports.modules={3702:(s,e,t)=>{t.r(e),t.d(e,{default:()=>r});let r=(0,t(8570).createProxy)(String.raw`/Users/shubhampanda/Desktop/newmhash/Landing-Page/src/lib/Combos.tsx#default`)}};
+"use strict";exports.id=702,exports.ids=[702],exports.modules={3702:(e,t,r)=>{r.r(t),r.d(t,{default:()=>s});let s=(0,r(8570).createProxy)(String.raw`D:\TechTatva\Landing-Page\src\lib\Combos.tsx#default`)}};
