@@ -60,7 +60,9 @@ const Background = (): JSX.Element => {
 						setTimeout(() => setShowLogo(true), 200)
 					}}
 					sizes="100vw"
-					quality={90}
+					quality={85} // Reduced for faster loading
+					placeholder="blur"
+					blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
 				/>
 
 				{/* Black Overlay with Subtle Blur */}
@@ -77,76 +79,67 @@ const Background = (): JSX.Element => {
 
 				{/* Content Container */}
 				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
-					{/* Logo Container with Enhanced 3D Moving Type Effect */}
+					{/* Logo Container with Enhanced 3D Animation */}
 					<div className="w-full flex justify-center">
 						<motion.div
-							className="relative h-80 w-80 sm:h-96 sm:w-96 md:h-[650px] md:w-[650px] perspective-1000"
+							className="relative h-80 w-80 sm:h-96 sm:w-96 md:h-[650px] md:w-[650px] will-change-transform"
+							style={{ 
+								transform: "translateZ(0)",
+								transformStyle: "preserve-3d",
+								perspective: "1000px"
+							}} // Force hardware acceleration with 3D context
 							initial={{
 								opacity: 0,
 								scale: 0.8,
-								rotateX: -15,
-								rotateY: -5,
 								y: 50,
+								rotateX: 0,
+								rotateY: 0,
+								rotateZ: 0,
 							}}
 							animate={
 								showLogo
 									? {
-											opacity: [0, 1, 1],
-											scale: [0.8, 1.1, 0.98],
-											rotateX: [-15, 2, -2, 0],
-											rotateY: [-5, 3, -1, 0],
-											y: [50, -10, 5, 0],
+											opacity: [0, 1],
+											scale: [0.8, 1.05, 0.98],
+											y: [50, -5, 0],
+											rotateX: [0, 2, 0],
+											rotateY: [0, 3, 0],
+											rotateZ: [0, 1, 0],
 										}
 									: {
 											opacity: 0,
 											scale: 0.8,
-											rotateX: -15,
-											rotateY: -5,
 											y: 50,
+											rotateX: 0,
+											rotateY: 0,
+											rotateZ: 0,
 										}
 							}
 							transition={{
-								opacity: {
-									duration: 3.5,
-									times: [0, 0.7, 1],
-									ease: "easeOut",
-								},
-								scale: {
-									duration: 3.5,
-									times: [0, 0.6, 1],
-									ease: [0.25, 0.46, 0.45, 0.94],
-								},
-								rotateX: {
-									duration: 4.2,
-									times: [0, 0.4, 0.8, 1],
-									ease: [0.25, 0.46, 0.45, 0.94],
-								},
-								rotateY: {
-									duration: 4.2,
-									times: [0, 0.4, 0.8, 1],
-									ease: [0.25, 0.46, 0.45, 0.94],
-								},
-								y: {
-									duration: 4.2,
-									times: [0, 0.4, 0.8, 1],
-									ease: [0.25, 0.46, 0.45, 0.94],
-								},
+								duration: 2.5,
+								ease: [0.25, 0.46, 0.45, 0.94],
 							}}>
-							{/* Subtle Continuous 3D Floating Animation */}
+							{/* Enhanced 3D Floating Animation */}
 							<motion.div
-								className="h-full w-full"
+								className="h-full w-full will-change-transform"
+								style={{ 
+									transform: "translateZ(0)",
+									transformStyle: "preserve-3d"
+								}} // Force hardware acceleration with 3D context
 								animate={{
 									y: [0, -4, 0, -2, 0],
-									rotateX: [0, 0.6, 0, -0.4, 0, 0.3, 0],
-									rotateY: [0, 0.3, 0, -0.2, 0, 0.1, 0],
-									rotateZ: [0, 0.15, 0, -0.1, 0, 0.05, 0],
+									rotateX: [0, 1.5, 0, -1, 0, 0.5, 0],
+									rotateY: [0, 2, 0, -1.5, 0, 1, 0],
+									rotateZ: [0, 0.5, 0, -0.3, 0, 0.2, 0],
+									scale: [1, 1.002, 1, 1.001, 1],
 								}}
 								transition={{
-									duration: 16,
+									duration: 12, // Smooth, slow movement
 									repeat: Infinity,
 									ease: "easeInOut",
 									repeatType: "reverse",
-									times: [0, 0.17, 0.33, 0.5, 0.67, 0.83, 1],
+									times: [0, 0.2, 0.4, 0.6, 0.8, 0.9, 1],
+									delay: 3, // Start after the initial pop animation
 								}}>
 								<Image
 									src={logoImage}
@@ -155,6 +148,9 @@ const Background = (): JSX.Element => {
 									className="object-contain drop-shadow-gothic-subtle"
 									sizes="(max-width: 768px) 24rem, 800px"
 									priority
+									quality={90}
+									placeholder="blur"
+									blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
 									onLoad={(): void => setIsLogoLoaded(true)}
 								/>
 							</motion.div>

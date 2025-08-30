@@ -56,15 +56,16 @@ const About: React.FC = (): JSX.Element => {
 			<div className="relative z-10 py-20 px-4 sm:px-8 md:px-16 lg:px-32">
 				{/* Hero Section */}
 				<motion.section
-					className="container mx-auto"
+					className="container mx-auto will-change-transform"
+					style={{ transform: "translateZ(0)" }}
 					id="about"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.3 }}>
+					viewport={{ once: true, amount: 0.2 }}>
 
 					<div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2">
-						<motion.div className="relative mx-auto h-48 w-80 sm:h-64 sm:w-96 md:h-80 md:w-[600px]" variants={logoVariants}>
+						<motion.div className="relative mx-auto h-48 w-80 sm:h-64 sm:w-96 md:h-80 md:w-[600px] will-change-transform" style={{ transform: "translateZ(0)" }} variants={logoVariants}>
 							<Image
 								src={techtatva}
 								alt="TechTatva Logo"

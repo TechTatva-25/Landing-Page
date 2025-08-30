@@ -1,0 +1,1 @@
+"use strict";exports.id=652,exports.ids=[652],exports.modules={2652:(e,s,t)=>{t.r(s),t.d(s,{default:()=>r});let r=(0,t(8570).createProxy)(String.raw`/Users/shubhampanda/Desktop/newmhash/Landing-Page/src/lib/Footer.tsx#default`)}};

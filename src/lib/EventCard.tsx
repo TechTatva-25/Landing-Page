@@ -31,7 +31,17 @@ const EventCard = ({
 			className="border-royal-gold from-dark-secondary-bg to-dark-bg mx-4 my-4 min-h-72 max-w-xs cursor-pointer overflow-hidden rounded-3xl border-2 bg-gradient-to-br shadow-lg transition-transform duration-300 hover:scale-105 lg:h-80 lg:w-80">
 			{/* Image Section */}
 			<div className="relative h-44">
-				<Image className="h-full w-full object-cover" src={imageUrl} width={400} height={400} alt="Event" />
+				<Image 
+					className="h-full w-full object-cover" 
+					src={imageUrl} 
+					width={400} 
+					height={400} 
+					alt="Event"
+					loading="lazy"
+					quality={80}
+					placeholder="blur"
+					blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+				/>
 			</div>
 
 			{/* Content Section */}

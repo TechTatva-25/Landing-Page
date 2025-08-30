@@ -1,27 +1,86 @@
 {
   "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/app/_not-found/page-12f067ceb7415e55.js"
+    ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/css/dea626bfbe456a63.css",
+      "static/css/4281b8a4cb763498.css",
+      "static/chunks/app/layout-46db49190a45818b.js"
+    ],
+    "/adminlogs/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/app/adminlogs/page-7c7acd5b801989df.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/app/admin/page-8b72c72cca13c9d8.js"
     ],
     "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/css/a74825155929ea55.css",
+      "static/css/ac4544e7cfda9ac0.css",
+      "static/chunks/903-97a74f70e6ee218e.js",
+      "static/chunks/569-50b61ebba6abdbdd.js",
+      "static/chunks/49-c886e80e91502912.js",
+      "static/chunks/42-82f818389646dedf.js",
+      "static/chunks/970-b9bbd46a315eaf07.js",
+      "static/chunks/app/page-1564a8fe81f63557.js"
     ],
     "/conclave/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/conclave/page.css",
-      "static/chunks/app/conclave/page.js"
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/css/a74825155929ea55.css",
+      "static/chunks/903-97a74f70e6ee218e.js",
+      "static/chunks/569-50b61ebba6abdbdd.js",
+      "static/chunks/49-c886e80e91502912.js",
+      "static/chunks/app/conclave/page-14a9922b18ca2686.js"
     ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+    "/team/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/903-97a74f70e6ee218e.js",
+      "static/chunks/432-d1b0ef121f1de6b4.js",
+      "static/chunks/app/team/page-8438afa79126676e.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/903-97a74f70e6ee218e.js",
+      "static/chunks/432-d1b0ef121f1de6b4.js",
+      "static/chunks/app/contact/page-da2fe79be608c597.js"
+    ],
+    "/timetable/page": [
+      "static/chunks/webpack-7e5cbc0bd99c4715.js",
+      "static/chunks/fd9d1056-ad15f396ddf9b7e5.js",
+      "static/chunks/117-c59f81b0cdc9e823.js",
+      "static/chunks/main-app-844c8519d83d4df7.js",
+      "static/chunks/569-50b61ebba6abdbdd.js",
+      "static/chunks/42-82f818389646dedf.js",
+      "static/chunks/app/timetable/page-b2c89a71060d5562.js"
     ]
   }
 }

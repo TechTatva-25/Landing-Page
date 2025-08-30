@@ -19,20 +19,22 @@ const Events = (): React.JSX.Element => {
 	const settings = {
 		dots: false,
 		infinite: true,
-		speed: 800,
+		speed: 600, // Reduced for smoother animation
 		slidesToShow: 3,
-		slidesToScroll: 3,
-		adaptiveHeight: true,
+		slidesToScroll: 1, // Reduced for smoother scrolling
+		adaptiveHeight: false, // Disabled for better performance
 		arrows: true,
 		autoplay: true,
-		autoplaySpeed: 3000,
-		cssEase: "ease-in-out",
+		autoplaySpeed: 4000, // Slightly increased
+		cssEase: "ease-out",
+		useTransform: true, // Enable hardware acceleration
+		lazyLoad: 'ondemand' as const, // Enable lazy loading
 		responsive: [
 			{
 				breakpoint: 1024,
 				settings: {
 					slidesToShow: 2,
-					slidesToScroll: 2,
+					slidesToScroll: 1,
 				},
 			},
 			{

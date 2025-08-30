@@ -67,6 +67,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
 			className={`${cinzelDecorative.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable} ${montserrat.variable} ${inter.variable} ${lora.variable} ${sourceSans3.variable}`}>
 			<head>
 				<link rel="icon" href="/favicon.ico" sizes="any" />
+				{/* Performance optimizations */}
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+				<link rel="dns-prefetch" href="https://register.revelsmit.in" />
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+				<meta httpEquiv="x-dns-prefetch-control" content="on" />
 			</head>
 			<body>{children}</body>
 		</html>

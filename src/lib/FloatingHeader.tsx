@@ -21,9 +21,12 @@ const FloatingHeader = (): React.JSX.Element => {
 				const elementPosition = element.getBoundingClientRect().top
 				const offsetPosition = elementPosition + window.pageYOffset - headerHeight
 
-				window.scrollTo({
-					top: offsetPosition,
-					behavior: "smooth",
+				// Use requestAnimationFrame for smoother scrolling
+				requestAnimationFrame(() => {
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: "smooth",
+					})
 				})
 			}
 		} else {
@@ -44,9 +47,12 @@ const FloatingHeader = (): React.JSX.Element => {
 					const elementPosition = element.getBoundingClientRect().top
 					const offsetPosition = elementPosition + window.pageYOffset - headerHeight
 
-					window.scrollTo({
-						top: offsetPosition,
-						behavior: "smooth",
+					// Use requestAnimationFrame for smoother scrolling
+					requestAnimationFrame(() => {
+						window.scrollTo({
+							top: offsetPosition,
+							behavior: "smooth",
+						})
 					})
 				}
 			}

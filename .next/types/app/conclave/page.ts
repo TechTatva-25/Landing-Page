@@ -1,4 +1,4 @@
-// File: C:\tt landing page\src\app\conclave\page.tsx
+// File: /Users/shubhampanda/Desktop/newmhash/Landing-Page/src/app/conclave/page.tsx
 import * as entry from '../../../../src/app/conclave/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
