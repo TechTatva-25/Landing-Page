@@ -10,7 +10,7 @@ export const metadata = getMetadata("TechTatva 25 | Contact Us")
 export default function Contact(): React.JSX.Element {
 	return (
 		<>
-			<ContactGrid backToHomeButton={false}></ContactGrid>
+			<ContactGrid></ContactGrid>
 			<ContactDetails></ContactDetails>
 			{/* <ContactUs></ContactUs> */}
 		</>
