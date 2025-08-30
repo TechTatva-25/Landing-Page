@@ -45,9 +45,7 @@ const Footer: FC = (): JSX.Element => {
 						</Button>
 					</div>
 				</div>
-				<div className={styles.footerBottom}>
-					© {new Date().getFullYear()} <span>TechTatva</span>. All rights reserved.
-				</div>
+
 			</div>
 		</footer>
 	)

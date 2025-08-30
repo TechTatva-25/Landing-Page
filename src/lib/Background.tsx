@@ -76,24 +76,33 @@ const Background = (): JSX.Element => {
 				<Particles />
 
 				{/* Content Container */}
-				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-					{/* Logo Container with Smooth Fade */}
-					<div className="">
+				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
+					{/* Logo Container with Enhanced 3D Moving Type Effect */}
+					<div className="w-full flex justify-center">
 						<motion.div
-							className="relative h-96 w-96 md:h-[650px] md:w-[650px]"
+							className="relative h-80 w-80 sm:h-96 sm:w-96 md:h-[650px] md:w-[650px] perspective-1000"
 							initial={{
 								opacity: 0,
 								scale: 0.8,
+								rotateX: -15,
+								rotateY: -5,
+								y: 50,
 							}}
 							animate={
 								showLogo
 									? {
 											opacity: [0, 1, 1],
 											scale: [0.8, 1.1, 0.98],
+											rotateX: [-15, 2, -2, 0],
+											rotateY: [-5, 3, -1, 0],
+											y: [50, -10, 5, 0],
 										}
 									: {
 											opacity: 0,
 											scale: 0.8,
+											rotateX: -15,
+											rotateY: -5,
+											y: 50,
 										}
 							}
 							transition={{
@@ -107,16 +116,48 @@ const Background = (): JSX.Element => {
 									times: [0, 0.6, 1],
 									ease: [0.25, 0.46, 0.45, 0.94],
 								},
+								rotateX: {
+									duration: 4.2,
+									times: [0, 0.4, 0.8, 1],
+									ease: [0.25, 0.46, 0.45, 0.94],
+								},
+								rotateY: {
+									duration: 4.2,
+									times: [0, 0.4, 0.8, 1],
+									ease: [0.25, 0.46, 0.45, 0.94],
+								},
+								y: {
+									duration: 4.2,
+									times: [0, 0.4, 0.8, 1],
+									ease: [0.25, 0.46, 0.45, 0.94],
+								},
 							}}>
-							<Image
-								src={logoImage}
-								alt="Logo"
-								fill
-								className="object-contain"
-								sizes="(max-width: 768px) 24rem, 800px"
-								priority
-								onLoad={(): void => setIsLogoLoaded(true)}
-							/>
+							{/* Subtle Continuous 3D Floating Animation */}
+							<motion.div
+								className="h-full w-full"
+								animate={{
+									y: [0, -4, 0, -2, 0],
+									rotateX: [0, 0.6, 0, -0.4, 0, 0.3, 0],
+									rotateY: [0, 0.3, 0, -0.2, 0, 0.1, 0],
+									rotateZ: [0, 0.15, 0, -0.1, 0, 0.05, 0],
+								}}
+								transition={{
+									duration: 16,
+									repeat: Infinity,
+									ease: "easeInOut",
+									repeatType: "reverse",
+									times: [0, 0.17, 0.33, 0.5, 0.67, 0.83, 1],
+								}}>
+								<Image
+									src={logoImage}
+									alt="Logo"
+									fill
+									className="object-contain drop-shadow-gothic-subtle"
+									sizes="(max-width: 768px) 24rem, 800px"
+									priority
+									onLoad={(): void => setIsLogoLoaded(true)}
+								/>
+							</motion.div>
 						</motion.div>
 					</div>
 

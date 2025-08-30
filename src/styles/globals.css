@@ -1284,3 +1284,45 @@ html {
 	);
 	z-index: 1;
 }
+
+@media (min-width: 640px) {
+	.mobile-content-center {
+		padding: 0;
+	}
+}
+
+/* Enhanced Drop Shadow for Reduced Glow */
+.drop-shadow-gothic-subtle {
+	filter: 
+		drop-shadow(0 0 15px rgba(218, 165, 32, 0.2))
+		drop-shadow(0 0 25px rgba(218, 165, 32, 0.1))
+		drop-shadow(0 0 35px rgba(218, 165, 32, 0.05));
+}
+
+/* Professional Team Card Styling */
+.team-card {
+	background: linear-gradient(135deg, 
+		rgba(31, 41, 55, 0.8) 0%, 
+		rgba(17, 24, 39, 0.9) 100%);
+	border: 1px solid rgba(218, 165, 32, 0.2);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+}
+
+.team-card:hover {
+	border-color: rgba(218, 165, 32, 0.4);
+	box-shadow: 
+		0 20px 40px rgba(0, 0, 0, 0.6),
+		0 0 30px rgba(218, 165, 32, 0.15);
+}
+
+/* Mobile Responsive Footer */
+.mobile-footer-left {
+	text-align: left;
+}
+
+@media (min-width: 768px) {
+	.mobile-footer-left {
+		text-align: inherit;
+	}
+}

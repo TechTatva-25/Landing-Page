@@ -53,7 +53,7 @@ const About: React.FC = (): JSX.Element => {
 			{/* Royal background with subtle overlay */}
 			<div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
 
-			<div className="relative z-10 py-20 sm:px-32">
+			<div className="relative z-10 py-20 px-4 sm:px-8 md:px-16 lg:px-32">
 				{/* Hero Section */}
 				<motion.section
 					className="container mx-auto"
@@ -63,18 +63,18 @@ const About: React.FC = (): JSX.Element => {
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.3 }}>
 
-					<div className="grid items-center gap-12 lg:grid-cols-2">
-						<motion.div className="relative mx-auto h-64 w-96 sm:h-80 sm:w-[600px]" variants={logoVariants}>
+					<div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2">
+						<motion.div className="relative mx-auto h-48 w-80 sm:h-64 sm:w-96 md:h-80 md:w-[600px]" variants={logoVariants}>
 							<Image
 								src={techtatva}
 								alt="TechTatva Logo"
 								fill
 								className="object-contain drop-shadow-2xl"
-								sizes="(max-width: 768px) 384px, 600px"
+								sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 600px"
 							/>
 						</motion.div>
 
-						<motion.div className="space-y-6" variants={itemVariants}>
+						<motion.div className="space-y-6 text-center sm:text-left" variants={itemVariants}>
 							<motion.div className="mb-8" variants={itemVariants}>
 								<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>
 									TechTatva 25
@@ -82,14 +82,14 @@ const About: React.FC = (): JSX.Element => {
 							</motion.div>
 
 							<div className="space-y-6">
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
+								<p className="body-font text-center sm:text-justify text-base sm:text-lg leading-relaxed text-gray-700">
 									TechTatva is the annual technical festival of Manipal Institute of Technology,
 									Manipal, celebrating innovation, creativity, and technological excellence. Conducted
 									over a period of four days, including prestigious competitions, hackathons, and
 									technical workshops, the fest is a convergence of brilliant minds and cutting-edge
 									ideas.
 								</p>
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
+								<p className="body-font text-center sm:text-justify text-base sm:text-lg leading-relaxed text-gray-700">
 									From Robotics and AI to Cybersecurity, Web Development, and Machine Learning,
 									TechTatva showcases the best of technical talent. Every year, thousands of students
 									from colleges across the country, as well as international participants, come
@@ -108,20 +108,20 @@ const About: React.FC = (): JSX.Element => {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.3 }}>
-					<div className="grid items-center gap-12 lg:grid-cols-2">
-						<motion.div className="mx-4 space-y-6" variants={itemVariants}>
+					<div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2">
+						<motion.div className="mx-2 sm:mx-4 space-y-6 text-center sm:text-left" variants={itemVariants}>
 							<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>
 								Our Legacy
 							</h2>
 
 							<div className="space-y-4">
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
+								<p className="body-font text-center sm:text-justify text-base sm:text-lg leading-relaxed text-gray-700">
 									TechTatva has been the cornerstone of technical innovation at Manipal Institute of
 									Technology since its inception. What started as a small gathering of tech
 									enthusiasts has evolved into one of the most prestigious technical festivals in the
 									country.
 								</p>
-								<p className="body-font text-justify text-lg leading-relaxed text-gray-700">
+								<p className="body-font text-center sm:text-justify text-base sm:text-lg leading-relaxed text-gray-700">
 									Over the years, TechTatva has witnessed groundbreaking projects, revolutionary
 									ideas, and the birth of countless innovations that have shaped the future of
 									technology. The festival continues to inspire generations of engineers and
@@ -132,7 +132,7 @@ const About: React.FC = (): JSX.Element => {
 						</motion.div>
 
 						<motion.div className="flex w-full justify-center" variants={itemVariants}>
-							<div className="relative h-48 w-48 sm:h-64 sm:w-64">
+							<div className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-64 md:w-64">
 								<Image
 									src={mit}
 									alt="MIT Logo"
