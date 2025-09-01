@@ -83,7 +83,7 @@ const About: React.FC = (): JSX.Element => {
 							</motion.div>
 
 							<div className="space-y-6">
-								<p className="body-font text-center sm:text-justify text-base sm:text-lg leading-relaxed text-gray-700">
+								<p className="body-font text-center text-base sm:text-lg leading-relaxed text-gray-700">
 									TechTatva is the annual technical festival of Manipal Institute of Technology,
 									Manipal, celebrating innovation, creativity, and technological excellence. Conducted
 									over a period of four days, including prestigious competitions, hackathons, and

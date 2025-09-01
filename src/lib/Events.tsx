@@ -19,16 +19,21 @@ const Events = (): React.JSX.Element => {
 	const settings = {
 		dots: false,
 		infinite: true,
-		speed: 600, // Reduced for smoother animation
+		speed: 500, // Faster transitions
 		slidesToShow: 3,
-		slidesToScroll: 1, // Reduced for smoother scrolling
-		adaptiveHeight: false, // Disabled for better performance
+		slidesToScroll: 1,
+		adaptiveHeight: false,
 		arrows: true,
 		autoplay: true,
-		autoplaySpeed: 4000, // Slightly increased
-		cssEase: "ease-out",
-		useTransform: true, // Enable hardware acceleration
-		lazyLoad: 'ondemand' as const, // Enable lazy loading
+		autoplaySpeed: 4000, // Faster autoplay
+		cssEase: "ease-out", // Simpler easing for better performance
+		useTransform: true,
+		lazyLoad: 'ondemand' as const,
+		swipeToSlide: true,
+		touchThreshold: 5,
+		pauseOnHover: true,
+		pauseOnFocus: true,
+		waitForAnimate: false, // Don't wait for animation
 		responsive: [
 			{
 				breakpoint: 1024,
@@ -51,9 +56,19 @@ const Events = (): React.JSX.Element => {
 
 	useEffect(() => {
 		async function fetchEvents(): Promise<void> {
-			const data = (await fetch("/api/v1/events", {}).then((r) => r.json())) as { data: EventDetail[] }
-
-			setEvents(data.data)
+			try {
+				const response = await fetch("/api/v1/events", {
+					cache: 'force-cache', // Cache the response
+					next: { revalidate: 300 } // Revalidate every 5 minutes
+				})
+				
+				if (response.ok) {
+					const data = (await response.json()) as { data: EventDetail[] }
+					setEvents(data.data)
+				}
+			} catch (error) {
+				console.error('Failed to fetch events:', error)
+			}
 		}
 
 		void fetchEvents()
@@ -66,25 +81,26 @@ const Events = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<div className="px-4 py-16" id="events" ref={ref}>
-			<div className="my-8 flex items-center justify-center">
+		<div className="px-4 py-20" id="events" ref={ref}>
+			<div className="my-12 flex items-center justify-center">
 				<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Events</span>
 			</div>
 
-			<div className="mx-auto mb-12 mt-2 max-w-screen-xl">
+			<div className="mx-auto mb-20 mt-6 max-w-screen-xl min-h-[800px]">
 				<div className="px-4">
 					<Slider {...settings}>
 						{events.map((e: EventDetail, index: number) => (
-							<div key={index} className="px-4">
-								<div className="flex justify-center">
+							<div key={index} className="px-4 py-2">
+								<div className="flex justify-center h-full">
 									<EventCard
+										index={index}
 										link="https://register.revelsmit.in/dashboard"
 										imageUrl={`/events/${cleanURL(e.event_name.toLowerCase())}.jpg`}
 										// imageUrl={"/images/test.jpg"}
 										date={e.event_date.split("T")[0].split("-").slice(1)[0]}
 										day={e.event_date.split("T")[0].split("-").slice(1)[1]}
 										eventName={e.event_name}
-										// description={e.event_desc}
+										description={e.event_desc}
 										clubName={e.category_name}
 									/>
 								</div>

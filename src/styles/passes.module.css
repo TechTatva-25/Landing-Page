@@ -33,6 +33,7 @@
 .royalPassCard {
   position: relative;
   width: 20rem; /* w-80 */
+  height: 28rem; /* Increased height for more details */
   overflow: hidden;
   border-radius: 1rem; /* rounded-xl */
   cursor: pointer;
@@ -40,13 +41,9 @@
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid rgba(212,165,55,0.28);
-  box-shadow:
-    0 4px 12px -2px rgba(0,0,0,0.9),
-    0 12px 42px -6px rgba(0,0,0,0.85),
-    0 0 0 1px rgba(180,140,35,0.18),
-    inset 0 0 0 1px rgba(255,255,255,0.04),
-    inset 0 0 24px -4px rgba(212,165,55,0.05);
-  transition: all .45s cubic-bezier(.4,.2,.2,1);
+  /* Subtle default shadow */
+  box-shadow: 0 2px 8px -2px rgba(0,0,0,0.3);
+  transition: all .3s ease;
   color-scheme: dark;
   isolation: isolate;
 }
@@ -88,12 +85,15 @@
 .royalPassCard:hover::after { opacity: .65; filter: blur(1.4px) brightness(1.15); }
 
 .royalPassCard:hover {
-  transform: translateY(-3px); /* removed scale */
+  transform: translateY(-6px);
   box-shadow:
     0 8px 26px -8px rgba(0,0,0,0.7),
-    0 0 0 1px rgba(212,165,55,0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.03);
-  border-color: rgba(212,165,55,0.38);
+    0 16px 40px -12px rgba(0,0,0,0.5),
+    0 24px 60px -16px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(212,165,55,0.4),
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 0 20px -4px rgba(212,165,55,0.06);
+  border-color: rgba(212,165,55,0.45);
 }
 
 @keyframes royalSheen {
@@ -287,4 +287,19 @@
   stroke: currentColor;
   filter: drop-shadow(0 0 4px rgba(255,221,119,0.4));
 }
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .eventCard { 
+    transition: box-shadow 0.2s ease, border-color 0.2s ease; 
+    will-change: auto;
+  }
+  .eventCard:hover { transform: none; }
+  .eventCard:hover::after { animation: none; background-position: 0 0,0 0,0 0; }
+}
+
+
 

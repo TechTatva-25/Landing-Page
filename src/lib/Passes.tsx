@@ -1,9 +1,9 @@
 "use client"
 
 import styles from "@/styles/passes.module.css"
-import flagship from "@/images/Flagship.jpg"
-import general from "@/images/General.jpg"
-import proshow from "@/images/ProShow.jpg"
+import flagship from "../../public/images_tt/Flagship_Pass.jpg"
+import general from "../../public/images_tt/General_Pass.jpg"
+import proshow from "../../public/images_tt/Conclave_Pass.jpg"
 
 import PassCard from "./PassCard"
 import { useInView } from "./useInView"

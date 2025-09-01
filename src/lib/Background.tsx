@@ -18,6 +18,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 import logoImage from "../../public/images_tt/Untitled design (1).png"
 import backgroundImageDesktop from "../../public/images_tt/Untitled design (2).png"
+import backgroundImageMobile from "../../public/images_tt/mobile_background.png"
 // import bannerImage from "../images/proshowentry.png"
 import CountdownTimer from "./CountdownTimer"
 import Particles from "./Particles"
@@ -45,13 +46,33 @@ const Background = (): JSX.Element => {
 			{/* <FullScreenBanner imageSrc={bannerImage} altText="TechTatva '25 Event Lineup" autoCloseTime={10000} /> */}
 
 			<div className="hero-breathing-glow relative h-screen w-full overflow-hidden bg-black" id="home">
-				{/* Background Image */}
+				{/* Background Image - Desktop */}
 				<Image
 					src={backgroundImageDesktop}
 					alt="Background"
 					fill
 					priority
-					className={`object-cover transition-opacity duration-1000 ${
+					className={`hidden sm:block object-cover transition-opacity duration-1000 ${
+						isLoaded ? "opacity-100" : "opacity-0"
+					}`}
+					onLoad={(): void => {
+						setIsLoaded(true)
+						// Start logo animation immediately after background loads
+						setTimeout(() => setShowLogo(true), 200)
+					}}
+					sizes="100vw"
+					quality={85} // Reduced for faster loading
+					placeholder="blur"
+					blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+				/>
+				
+				{/* Background Image - Mobile */}
+				<Image
+					src={backgroundImageMobile}
+					alt="Background"
+					fill
+					priority
+					className={`block sm:hidden object-cover transition-opacity duration-1000 ${
 						isLoaded ? "opacity-100" : "opacity-0"
 					}`}
 					onLoad={(): void => {

@@ -1,5 +1,5 @@
 /* FAQ Module Restored */
-.faqWrapper { max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; position:relative; }
+.faqWrapper { max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; position:relative; width:100%; }
 .faqWrapper::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 30% 20%,rgba(212,165,55,.15),transparent 60%),radial-gradient(circle at 75% 70%,rgba(255,215,0,.12),transparent 65%); pointer-events:none; filter:blur(6px); }
 
 .faqPanel { position:relative; border-radius:24px; padding:2.5rem 1.25rem 2.75rem; background:linear-gradient(145deg,rgba(0,0,0,.78),rgba(8,8,8,.92) 55%,rgba(28,21,6,.75)); backdrop-filter:blur(22px) saturate(140%); -webkit-backdrop-filter:blur(22px) saturate(140%); border:1px solid rgba(212,165,55,.28); box-shadow:0 8px 32px -4px rgba(0,0,0,.7),0 0 0 1px rgba(212,165,55,.22),inset 0 0 0 1px rgba(255,255,255,.05); overflow:hidden; }
@@ -31,4 +31,9 @@
 .royalFaqContent[data-state='open'] .royalFaqAnswer { line-height:1.62; }
 .royalFaqAnswer strong { color:#ffdd85; font-weight:600; }
 
-@media (max-width:640px){ .faqPanel { padding:2rem 1rem 2.25rem; } .royalFaqHeader { font-size:.98rem; } .royalFaqAnswer { font-size:clamp(1rem,.95rem + 0.5vw,1.12rem); line-height:1.65; } }
+@media (max-width:640px){ 
+  .faqWrapper { padding:2rem 0.5rem 3rem; max-width:100%; }
+  .faqPanel { padding:2rem 1rem 2.25rem; } 
+  .royalFaqHeader { font-size:.98rem; } 
+  .royalFaqAnswer { font-size:clamp(1rem,.95rem + 0.5vw,1.12rem); line-height:1.65; } 
+}

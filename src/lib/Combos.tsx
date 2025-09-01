@@ -1,7 +1,7 @@
 "use client"
 
-import combo2 from "@/images/Combo1.jpg"
-import combo1 from "@/images/Combo2.jpg"
+import combo1 from "../../public/images_tt/Combo-1(Conclave+merch).jpg"
+import combo2 from "../../public/images_tt/Combo-2 (flagship and merch).jpg"
 import PassCard from "@/lib/PassCard"
 import { useInView } from "./useInView"
 import styles from "@/styles/passes.module.css"

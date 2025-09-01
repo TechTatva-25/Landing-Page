@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic"
 
 async function fetchEvents(): Promise<EventDetail[]> {
 	try {
-		const url = "https://api.revelsmit.in/api/v1/events"
+		const url = "https://dev-api.revelsmit.in/api/v1/events"
 
 		const headers = {
 			accesskey: "27304c0b-5699-42a9-b6d4-db668d2b61882",

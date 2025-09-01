@@ -3,13 +3,13 @@
   "/adminlogs/page": "app/adminlogs/page.js",
   "/admin/page": "app/admin/page.js",
   "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/conclave/page": "app/conclave/page.js",
-  "/api/v1/admin/route": "app/api/v1/admin/route.js",
   "/api/v1/query/route": "app/api/v1/query/route.js",
-  "/team/page": "app/team/page.js",
-  "/timetable/page": "app/timetable/page.js",
   "/api/v1/events/route": "app/api/v1/events/route.js",
   "/api/v1/raw-events/route": "app/api/v1/raw-events/route.js",
-  "/api/v1/adminLogs/route": "app/api/v1/adminLogs/route.js"
+  "/api/v1/adminLogs/route": "app/api/v1/adminLogs/route.js",
+  "/timetable/page": "app/timetable/page.js",
+  "/conclave/page": "app/conclave/page.js",
+  "/api/v1/admin/route": "app/api/v1/admin/route.js",
+  "/contact/page": "app/contact/page.js",
+  "/team/page": "app/team/page.js"
 }
