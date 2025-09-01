@@ -1,2 +1,25 @@
 User-agent: *
-Disallow: /api
+Allow: /
+
+# Sitemap
+Sitemap: https://techtatva.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /adminlogs/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /
+Allow: /events
+Allow: /passes
+Allow: /combos
+Allow: /contact
+Allow: /team
+Allow: /timetable
+Allow: /conclave

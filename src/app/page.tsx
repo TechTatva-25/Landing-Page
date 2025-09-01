@@ -46,8 +46,49 @@ const LoadingSpinner = () => (
 )
 
 export default function Home(): React.JSX.Element {
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "Event",
+		"name": "TechTatva 25",
+		"description": "MIT Manipal's premier technical festival featuring cutting-edge technology competitions, workshops, hackathons, and innovation showcases.",
+		"startDate": "2025-03-15",
+		"endDate": "2025-03-18",
+		"eventStatus": "https://schema.org/EventScheduled",
+		"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+		"location": {
+			"@type": "Place",
+			"name": "Manipal Institute of Technology",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "MIT Campus",
+				"addressLocality": "Manipal",
+				"addressRegion": "Karnataka",
+				"postalCode": "576104",
+				"addressCountry": "IN"
+			}
+		},
+		"organizer": {
+			"@type": "Organization",
+			"name": "TechTatva 25 - MIT Manipal",
+			"url": "https://techtatva.in"
+		},
+		"offers": {
+			"@type": "Offer",
+			"url": "https://register.techtatva.in",
+			"price": "0",
+			"priceCurrency": "INR",
+			"availability": "https://schema.org/InStock"
+		},
+		"image": "https://techtatva.in/images_tt/Untitled design (1).png",
+		"url": "https://techtatva.in"
+	}
+
 	return (
 		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
 			<PerformanceMonitor />
 			<FloatingHeader />
 			<Background />
