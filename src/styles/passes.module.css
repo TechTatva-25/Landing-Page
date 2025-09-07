@@ -47,8 +47,48 @@
   color-scheme: dark;
   isolation: isolate;
 }
+.royalConclaveCard {
+  position: relative;
+  width: 20rem; /* w-80 */
+  height: 36rem; /* Increased height for more details */
+  overflow: hidden;
+  border-radius: 1rem; /* rounded-xl */
+  cursor: pointer;
+  background: linear-gradient(155deg,#000 0%,#050505 35%,#0a0a0a 70%,#0f0f0f 100%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(212,165,55,0.28);
+  /* Subtle default shadow */
+  box-shadow: 0 2px 8px -2px rgba(0,0,0,0.3);
+  transition: all .3s ease;
+  color-scheme: dark;
+  isolation: isolate;
+}
+
+.royalTeamCard {
+  position: relative;
+  width: 20rem; /* w-80 */
+  overflow: hidden;
+  border-radius: 1rem; /* rounded-xl */
+  cursor: pointer;
+  background: linear-gradient(155deg,#000 0%,#050505 35%,#0a0a0a 70%,#0f0f0f 100%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(212,165,55,0.28);
+  /* Subtle default shadow */
+  box-shadow: 0 2px 8px -2px rgba(0,0,0,0.3);
+  transition: all .3s ease;
+  color-scheme: dark;
+  isolation: isolate;
+}
 
 .royalPassCard::before, .royalPassCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.royalTeamCard::before, .royalTeamCard::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -66,8 +106,20 @@
   filter: blur(.5px);
   z-index: 0;
 }
+.royalTeamCard::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(212,165,55,0.20), rgba(212,165,55,0) 55%),
+    radial-gradient(circle at 82% 78%, rgba(255,215,0,0.18), rgba(255,215,0,0) 65%),
+    linear-gradient(115deg, rgba(255,215,0,0.05), rgba(255,215,0,0) 40%);
+  mix-blend-mode: screen;
+  opacity: .55;
+  transition: opacity .5s ease, filter .6s ease;
+  filter: blur(.5px);
+  z-index: 0;
+}
 
 .royalPassCard:hover::before { opacity: .7; }
+.royalTeamCard:hover::before { opacity: .7; }
 
 .royalPassCard::after {
   background: linear-gradient(120deg,rgba(212,165,55,0.25),rgba(255,215,0,0) 55%),linear-gradient(300deg,rgba(255,255,255,0.08),rgba(255,255,255,0) 65%);
@@ -81,10 +133,34 @@
   box-shadow: 0 0 0 1px rgba(212,165,55,0.25);
   transition: opacity .35s ease, filter .4s ease;
 }
+.royalTeamCard::after {
+  background: linear-gradient(120deg,rgba(212,165,55,0.25),rgba(255,215,0,0) 55%),linear-gradient(300deg,rgba(255,255,255,0.08),rgba(255,255,255,0) 65%);
+  background-size: 100% 100%;
+  background-position: 0 0;
+  padding: 1px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  filter: blur(2px) brightness(1.05);
+  opacity: 0; /* start hidden */
+  box-shadow: 0 0 0 1px rgba(212,165,55,0.25);
+  transition: opacity .35s ease, filter .4s ease;
+}
 
 .royalPassCard:hover::after { opacity: .65; filter: blur(1.4px) brightness(1.15); }
+.royalTeamCard:hover::after { opacity: .65; filter: blur(1.4px) brightness(1.15); }
 
 .royalPassCard:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 26px -8px rgba(0,0,0,0.7),
+    0 16px 40px -12px rgba(0,0,0,0.5),
+    0 24px 60px -16px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(212,165,55,0.4),
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 0 20px -4px rgba(212,165,55,0.06);
+  border-color: rgba(212,165,55,0.45);
+}
+.royalTeamCard:hover {
   transform: translateY(-6px);
   box-shadow:
     0 8px 26px -8px rgba(0,0,0,0.7),
@@ -106,6 +182,11 @@
   .royalPassCard { transition: box-shadow .4s ease, border-color .4s ease, background .6s ease; }
   .royalPassCard:hover { transform: none; }
   .royalPassCard:hover::after { animation: none; background-position: 0 0,0 0,0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .royalTeamCard { transition: box-shadow .4s ease, border-color .4s ease, background .6s ease; }
+  .royalTeamCard:hover { transform: none; }
+  .royalTeamCard:hover::after { animation: none; background-position: 0 0,0 0,0 0; }
 }
 
 .passesCardTitle {

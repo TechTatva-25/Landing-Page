@@ -49,7 +49,7 @@ const EventCard = ({
 					window.open(link)
 				}
 			}}
-			className={`${styles.royalPassCard} group cursor-pointer`}>
+			className={`${styles.royalTeamCard} group cursor-pointer`}>
 			{/* Image Section */}
 			<div className="relative h-48 overflow-hidden">
 				<Image

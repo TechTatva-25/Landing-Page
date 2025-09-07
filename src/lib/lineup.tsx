@@ -158,7 +158,7 @@ const LineUp: FC = () => {
 									ease: [0.25, 0.46, 0.45, 0.94]
 								}}
 							>
-								<Card className={`${styles.royalPassCard} group overflow-hidden border-none`}>
+								<Card className={`${styles.royalConclaveCard} group overflow-hidden border-none`}>
 									<CardHeader className="pb-4">
 										<CardTitle className={`heading-font text-xl sm:text-2xl font-bold ${styles.passesCardTitle}`}>
 											{card.title}

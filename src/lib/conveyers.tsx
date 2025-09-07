@@ -95,8 +95,11 @@ const ContactGrid = (): JSX.Element => {
                         section.members.length === 1
                             ? "team-grid-single grid-cols-1"
                             : section.members.length === 2
-                            ? "team-grid-double grid-cols-1 md:grid-cols-2"
+                            ? "team-grid-double grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto"
                             : "team-grid-triple grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+
+                    // Much smaller gap for 2 cards
+                    const gapClass = section.members.length === 2 ? "gap-6 md:gap-6" : "gap-6"
 
                     return (
                         <div key={section.title} className="mb-16">
@@ -107,12 +110,12 @@ const ContactGrid = (): JSX.Element => {
                                     {section.title}
                                 </span>
                             </div>
-                            {/* Team grid with responsive columns */}
-                            <div className={`team-grid grid place-items-center gap-6 ${gridCols}`}>
+                            {/* Team grid with responsive columns and dynamic gap */}
+                            <div className={`team-grid grid place-items-center ${gapClass} ${gridCols}`}>
                                 {section.members.map((member) => (
                                     <div
                                         key={member.name}
-                                        className={`${styles.royalPassCard} flex w-full max-w-xs flex-col items-center px-6 py-6 text-center`}>
+                                        className={`${styles.royalTeamCard} flex w-full max-w-xs flex-col items-center px-6 py-6 text-center`}>
                                         {/* Avatar */}
                                         <div className="relative mx-auto mb-4 h-24 w-24">
                                             <Image
