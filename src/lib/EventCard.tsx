@@ -67,19 +67,16 @@ const EventCard = ({
 
 			{/* Content Section */}
 			<div className="p-6 flex flex-col h-full">
-				<div className="flex items-start space-x-4 mb-4">
-					{/* Date */}
-					<div className="text-left flex-shrink-0">
-						<p className="royal-gold heading-font text-lg font-semibold">{date}</p>
-						<p className="heading-font text-2xl font-bold text-white">{day}</p>
-					</div>
-
-					{/* Event Info */}
-					<div className="flex-1 min-w-0">
-						<h3 className={`heading-font mb-3 text-2xl ${styles.passesCardTitle}`}>
-							{eventName}
-						</h3>
-						<p className="royal-gold body-font text-sm font-semibold">{clubName}</p>
+				{/* Event Info */}
+				<div className="mb-4">
+					<h3 className={`heading-font mb-2 text-lg leading-tight ${styles.passesCardTitle}`}>
+						{eventName}
+					</h3>
+					<p className="royal-gold body-font text-sm font-semibold mb-2">{clubName}</p>
+					
+					{/* Date in dd/mm format */}
+					<div className="text-left">
+						<p className="royal-gold heading-font text-sm font-semibold">{day}/{date}</p>
 					</div>
 				</div>
 

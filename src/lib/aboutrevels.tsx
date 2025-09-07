@@ -49,14 +49,14 @@ const About: React.FC = (): JSX.Element => {
 	}
 
 	return (
-		<div className="relative overflow-hidden text-gray-800" ref={ref}>
+		<div className="relative px-0 overflow-hidden text-gray-800" ref={ref}>
 			{/* Royal background with subtle overlay */}
 			<div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
 
-			<div className="relative z-10 py-20 px-4 sm:px-8 md:px-16 lg:px-32">
+			<div className="relative z-10 py-4 md:py-10 px-4 sm:px-8 md:px-16 lg:px-32">
 				{/* Hero Section */}
 				<motion.section
-					className="container mx-auto will-change-transform"
+					className="mx-auto will-change-transform"
 					style={{ transform: "translateZ(0)" }}
 					id="about"
 					variants={containerVariants}
@@ -104,13 +104,13 @@ const About: React.FC = (): JSX.Element => {
 
 				{/* History Section */}
 				<motion.section
-					className="container mx-auto px-4 py-16"
+					className="mx-auto py-4 md:py-10"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.3 }}>
 					<div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2">
-						<motion.div className="mx-2 sm:mx-4 space-y-6 text-center sm:text-left" variants={itemVariants}>
+						<motion.div className="mx-2 sm:mx-4 space-y-6 text-center sm:text-left order-2 lg:order-1" variants={itemVariants}>
 							<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>
 								Our Legacy
 							</h2>
@@ -132,7 +132,7 @@ const About: React.FC = (): JSX.Element => {
 							</div>
 						</motion.div>
 
-						<motion.div className="flex w-full justify-center" variants={itemVariants}>
+						<motion.div className="flex w-full justify-center order-1 lg:order-2" variants={itemVariants}>
 							<div className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-64 md:w-64">
 								<Image
 									src={mit}

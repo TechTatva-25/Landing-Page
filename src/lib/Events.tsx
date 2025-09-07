@@ -86,7 +86,7 @@ const Events = (): React.JSX.Element => {
 				<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Events</span>
 			</div>
 
-			<div className="mx-auto mb-20 mt-6 max-w-screen-xl min-h-[800px]">
+			<div className="mx-auto mb-10 mt-6 max-w-screen-xl">
 				<div className="px-4">
 					<Slider {...settings}>
 						{events.map((e: EventDetail, index: number) => (

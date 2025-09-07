@@ -11,7 +11,7 @@ const FAQ = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<div className="container mb-24 mt-8 py-16" ref={ref}>
+		<div className="container mb-4 md:mb-24 mt-8 py-16" ref={ref}>
 			<div className="m-5 flex items-center justify-center">
 				<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>FAQ</span>
 			</div>
