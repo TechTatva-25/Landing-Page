@@ -68,6 +68,7 @@
 .royalTeamCard {
   position: relative;
   width: 20rem; /* w-80 */
+  /* height: 25rem; */
   overflow: hidden;
   border-radius: 1rem; /* rounded-xl */
   cursor: pointer;

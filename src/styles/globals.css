@@ -1048,6 +1048,16 @@ html {
 	transform: translateZ(0);
 }
 
+/* Section Spacing Standardization */
+/* Standardized section headings spacing */
+.section-standard {
+	padding: 4rem 1rem;
+}
+
+.section-header-standard {
+	margin-bottom: 3rem;
+}
+
 /* Performance optimizations for scrolling */
 * {
 	-webkit-backface-visibility: hidden;

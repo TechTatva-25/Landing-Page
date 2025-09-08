@@ -48,9 +48,8 @@ const ContactUs = (): JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-			<section id="contact" ref={ref} className={contactStyles.contactSection}>
-				<div className={contactStyles.contactShell}>
-					<div className={contactStyles.contactBackdrop}></div>
+			<section id="contact" ref={ref} className="px-4 py-8">
+				<div className="mx-auto max-w-screen-xl">
 					<div className="mb-12 flex justify-center">
 						<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Contact Us</span>
 					</div>

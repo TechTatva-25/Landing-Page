@@ -42,15 +42,6 @@ import image31 from "../images/gallery/31.jpg"
 import image32 from "../images/gallery/32.jpg"
 import image33 from "../images/gallery/33.jpg"
 import image34 from "../images/gallery/34.jpg"
-import image35 from "../images/gallery/35.jpg"
-import image36 from "../images/gallery/36.jpg"
-import image37 from "../images/gallery/37.jpg"
-import image38 from "../images/gallery/38.jpg"
-import image39 from "../images/gallery/39.jpg"
-import image40 from "../images/gallery/40.jpg"
-import image41 from "../images/gallery/41.jpg"
-import image42 from "../images/gallery/42.jpg"
-import image43 from "../images/gallery/43.jpg"
 import styles from "@/styles/passes.module.css"
 
 const galleryImages = [
@@ -88,15 +79,6 @@ const galleryImages = [
 	{ id: 32, image: image32, alt: "Gallery image 32" },
 	{ id: 33, image: image33, alt: "Gallery image 33" },
 	{ id: 34, image: image34, alt: "Gallery image 34" },
-	{ id: 35, image: image35, alt: "Gallery image 35" },
-	{ id: 36, image: image36, alt: "Gallery image 36" },
-	{ id: 37, image: image37, alt: "Gallery image 37" },
-	{ id: 38, image: image38, alt: "Gallery image 38" },
-	{ id: 39, image: image39, alt: "Gallery image 39" },
-	{ id: 40, image: image40, alt: "Gallery image 40" },
-	{ id: 41, image: image41, alt: "Gallery image 41" },
-	{ id: 42, image: image42, alt: "Gallery image 42" },
-	{ id: 43, image: image43, alt: "Gallery image 43" },
 ]
 
 const Gallery = (): React.JSX.Element => {
@@ -142,10 +124,10 @@ const Gallery = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<section className="px-4 py-16" id="gallery" ref={ref}>
+		<section className="px-4 py-8" id="gallery" ref={ref}>
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
-				<div className="my-8 flex items-center justify-center">
+				<div className="mb-12 flex items-center justify-center">
 					<h2 className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Gallery</h2>
 				</div>
 

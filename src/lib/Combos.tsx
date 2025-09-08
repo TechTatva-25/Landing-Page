@@ -10,11 +10,11 @@ const Combos = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<div className="px-4 py-16" id="combos" ref={ref}>
-			<div className="mb-8 flex items-center justify-center">
+		<div className="px-4 py-8" id="combos" ref={ref}>
+			<div className="mb-12 flex items-center justify-center">
 				<span className={`${styles.passesHeading} heading-font ${isInView ? "in-view" : ""}`}>Combo Deals</span>
 			</div>
-			<div className="mx-auto mt-8 flex max-w-screen-xl items-center justify-center">
+			<div className="mx-auto mb-12 flex max-w-screen-xl items-center justify-center">
 				<div className="flex flex-wrap justify-center gap-6">
 					<PassCard
 						index={0}

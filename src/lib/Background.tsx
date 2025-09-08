@@ -99,11 +99,11 @@ const Background = (): JSX.Element => {
 				<Particles />
 
 				{/* Content Container */}
-				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
+				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 pt-16">
 					{/* Logo Container with Enhanced 3D Animation */}
 					<div className="w-full flex justify-center">
 						<motion.div
-							className="relative h-80 w-80 sm:h-96 sm:w-96 md:h-[650px] md:w-[650px] will-change-transform"
+							className="relative h-80 w-80 sm:h-96 sm:w-96 md:h-[500px] md:w-[500px] will-change-transform"
 							style={{ 
 								transform: "translateZ(0)",
 								transformStyle: "preserve-3d",
@@ -167,11 +167,11 @@ const Background = (): JSX.Element => {
 									alt="Logo"
 									fill
 									className="object-contain drop-shadow-gothic-subtle"
-									sizes="(max-width: 768px) 24rem, 800px"
+									sizes="(max-width: 640px) 15rem, (max-width: 768px) 18rem, (max-width: 1024px) 24rem, 31rem"
 									priority
 									quality={90}
 									placeholder="blur"
-									blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+									blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
 									onLoad={(): void => setIsLogoLoaded(true)}
 								/>
 							</motion.div>

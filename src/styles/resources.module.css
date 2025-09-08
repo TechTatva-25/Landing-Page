@@ -1,7 +1,7 @@
 /* Royal Resources Section (revamped) */
 .resourcesSection {
   position: relative;
-  padding: 4.5rem 1rem 5.5rem;
+  padding: 4rem 1rem 4rem;
   isolation: isolate;
 }
 .resourcesBackdrop {

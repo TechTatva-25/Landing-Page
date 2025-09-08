@@ -12,7 +12,7 @@ const Passes = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 
 	return (
-		<div className="px-4 py-16" id="passes" ref={ref}>
+		<div className="px-4 py-8" id="passes" ref={ref}>
 			<div className="mb-12 flex items-center justify-center">
 				<span className={`${styles.passesHeading} heading-font ${isInView ? "in-view" : ""}`}>Passes</span>
 			</div>

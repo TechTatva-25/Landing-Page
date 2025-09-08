@@ -9,10 +9,6 @@ const accordionData = [
 			"The flagship pass gives you access to register for both flagship and general events, while the general pass only allows you to register for general events.",
 	},
 	{
-		title: "Can I upgrade from the general pass to the flagship pass even if I bought Combo 1",
-		content: "Yes, you can upgrade by paying the difference between Combo 1 and Combo 2.",
-	},
-	{
 		title: "I tried to log in as MAHE, but my enrollment number is not found.",
 		content:
 			"Please recheck your enrollment number. If your branch was changed, please try using the old registration number.",
@@ -32,12 +28,28 @@ const accordionData = [
 		content: "No refunds are provided once a purchase is confirmed.",
 	},
 	{
-		title: "Is the standup for everyone?",
-		content: "Standup is for MIT students only.",
-	},
-	{
 		title: "Offline ticket sales",
 		content: "There will be no offline sales for any of the passes.",
+	},
+	{
+		title: "Will accommodation be provided for Outstation participants?",
+		content:
+			"Yes, accommodation will be provided on a nominal cost. However, it is allocated on a first-come, first-served basis and is subject to availability.",
+	},
+	{
+		title: "Are mentors permitted to accompany their teams, and will they be provided with accommodation?",
+		content:
+			"Mentors are welcome to accompany their teams. Accommodation for mentors will also be provided on a first-come, first-served basis, based upon availability.",
+	},
+	{
+		title: "What documents are required upon arrival?",
+		content:
+			"All participants must present the following documents for verification:\n\n- A bonafide certificate from your college authorizing your team's participation.\n\n- Physical valid government-issued photo ID (e.g., Aadhar Card, Driver's License, etc.), along with a copy as well.\n\n- Current college ID card.",
+	},
+	{
+		title: "Is individual registration and pass purchase required for each team member?",
+		content:
+			"Yes, it is mandatory for every team member to individually purchase a pass and complete the registration process on the official website.",
 	},
 ]
 

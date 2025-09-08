@@ -117,7 +117,7 @@ const ContactGrid = (): JSX.Element => {
                                         key={member.name}
                                         className={`${styles.royalTeamCard} flex w-full max-w-xs flex-col items-center px-6 py-6 text-center`}>
                                         {/* Avatar */}
-                                        <div className="relative mx-auto mb-4 h-24 w-24">
+                                        <div className="relative mx-auto mb-8 h-28 w-28">
                                             <Image
                                                 src={member.image}
                                                 alt={member.name}

@@ -52,10 +52,9 @@ const Resources: FC = () => {
   ]
 
   return (
-    <section id="resources" ref={ref} className={rStyles.resourcesSection}>
-      <div className={rStyles.resourcesBackdrop}></div>
-      <div className={rStyles.resourcesInner}>
-        <div className={rStyles.resourcesHeadingWrap}>
+    <section id="resources" ref={ref} className="px-4 py-8 pb-16">
+      <div className="mx-auto max-w-screen-xl">
+        <div className="mb-12 flex items-center justify-center">
           <h2 className={`${stylesHeading.passesHeading} heading-font ${isInView ? "in-view" : ""}`}>Resources</h2>
         </div>
         <div className={rStyles.resourcesGrid}>

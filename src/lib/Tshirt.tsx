@@ -20,8 +20,8 @@ const Tshirt = (): React.JSX.Element => {
 	const { ref, isInView } = useInView()
 	
 	return (
-		<section className="px-4 py-16" id="tshirt" ref={ref}>
-			<div className="my-8 flex w-full items-center justify-center">
+		<section className="px-4 py-8" id="tshirt" ref={ref}>
+			<div className="mb-12 flex w-full items-center justify-center">
 				<span className={`${styles.passesHeading} heading-font ${isInView ? 'in-view' : ''}`}>Merchandise</span>
 			</div>
 

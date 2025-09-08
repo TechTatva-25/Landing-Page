@@ -49,16 +49,15 @@ const About: React.FC = (): JSX.Element => {
 	}
 
 	return (
-		<div className="relative px-0 overflow-hidden text-gray-800" ref={ref}>
+		<div className="relative px-4 py-8 overflow-hidden text-gray-800" id="about" ref={ref}>
 			{/* Royal background with subtle overlay */}
 			<div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
 
-			<div className="relative z-10 py-4 md:py-10 px-4 sm:px-8 md:px-16 lg:px-32">
+			<div className="relative z-10 max-w-screen-xl mx-auto">
 				{/* Hero Section */}
 				<motion.section
-					className="mx-auto will-change-transform"
+					className="mx-auto will-change-transform mb-12"
 					style={{ transform: "translateZ(0)" }}
-					id="about"
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
